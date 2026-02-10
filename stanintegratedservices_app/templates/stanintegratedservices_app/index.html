@@ -1,0 +1,1235 @@
+{% extends 'stanintegratedservices_app/base.html' %}
+{% load static %}
+{% block title %}
+<title>Home | Stan Integrated Services</title>
+{% endblock %}
+{% block content %}
+
+<style>
+    .hero {
+        color: #fff;
+        padding: 5rem 1rem;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .hero-video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -2;
+    }
+
+    .hero::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.568);
+        z-index: -1;
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .hero-overlay-mobile {}
+
+
+
+    .hero h1 {
+        font-weight: 700;
+        text-align: center;
+        font-size: 45px;
+    }
+
+    .service-icon {
+        font-size: 2.5rem;
+    }
+
+    .ctas {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin-top: 3rem;
+    }
+
+    .hero p {
+        font-size: 20px;
+        font-weight: 500;
+        text-align: center;
+    }
+
+    .about-us {
+        padding: 4rem 2rem;
+    }
+
+    .about-us h4 {
+        position: relative;
+        padding-top: 1rem;
+        text-transform: uppercase;
+        font-size: 17px;
+    }
+
+    .about-us h2 {
+        font-weight: 600;
+    }
+
+    .about-us p {
+        color: #000000;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-size: 18px;
+        line-height: 27px;
+        font-style: italic;
+        text-align: left;
+    }
+
+    .about-us .extra-p {
+        color: #282828;
+        font-family: Barlow;
+        font-size: 15px;
+        line-height: 27px;
+        text-align: left;
+    }
+
+    .about-us h4::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        width: 3rem;
+        height: 4px;
+        background-color: #03134f;
+    }
+
+    .about-us .card-text {
+        color: #333333;
+    }
+
+    .about-us .perks .card .card-title {
+        font-size: 22px;
+    }
+
+    .card-container {
+        padding: 5px;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .card-container .card {
+        width: 100%;
+        height: auto;
+    }
+
+    .our-services {
+        background: linear-gradient(270deg, #03134f 80%, #fff 20%);
+
+    }
+
+    .our-services .container {
+        padding: 3rem;
+    }
+
+    .service-title p {
+        font-style: italic;
+        background: #03134f;
+        border-radius: 2rem;
+        padding: 0rem 2rem;
+    }
+
+    .our-services a {
+        background: linear-gradient(to top right, #fff, #4c62b3);
+        border: 2px solid #ffffff;
+        color: #000000;
+        font-weight: 600;
+        text-decoration: none;
+        border-radius: 2rem;
+        padding: 0.5rem 1rem;
+        transition: 0.8s ease;
+    }
+
+    .our-services a:hover {
+        background: linear-gradient(to top left, #6171ad, #fff);
+        border: 2px solid #ffffff;
+    }
+
+    .our-services .card {
+        box-shadow: 0px 0px 10px rgba(3, 19, 79, 0.943);
+
+    }
+
+    .our-services .card-text {
+        font-weight: 500;
+    }
+
+    .why-us .container {
+        padding: 3rem;
+    }
+
+    .why-us .container span {
+        font-size: 18px;
+        line-height: 1.5rem;
+        font-weight: 500;
+    }
+
+    .why-image {
+        width: 100%;
+        height: 100%;
+        padding: 2rem;
+        border-radius: 5rem;
+    }
+
+    .faq .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        color: #000000;
+    }
+
+    .pre-footer {
+        background: linear-gradient(40deg, #03134f 78%, #fff 22%);
+    }
+
+    .pre-footer .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        color: #fff;
+    }
+
+    .pre-footer h2 {
+        font-size: 35px;
+    }
+
+    .pre-footer p {
+        text-align: center;
+        font-weight: 500;
+    }
+
+    .pre-footer a {
+        background: linear-gradient(to top right, #fff, #4c62b3);
+        border: 2px solid #ffffff;
+        color: #000000;
+        font-weight: 600;
+        text-decoration: none;
+        border-radius: 2rem;
+        padding: 0.5rem 1rem;
+        transition: 0.8s ease;
+    }
+
+    .pre-footer a:hover {
+        background: linear-gradient(to top left, #6171ad, #fff);
+        border: 2px solid #ffffff;
+    }
+
+
+
+
+
+
+
+    @media (min-width: 1024px) {
+        /* .hero h1 {
+            text-align: left;
+            padding: 5rem 0;
+        } */
+
+
+
+        .hero {
+            height: 90vh;
+        }
+
+        .ctas {
+            flex-direction: row;
+            margin-top: 0;
+        }
+
+        .hero p {
+            display: block;
+        }
+
+        .card-container {
+            flex-direction: row;
+            gap: 1rem;
+
+        }
+
+        .card-container .card {
+            width: 100%;
+            height: 300px;
+
+        }
+
+        .card-margin {
+            margin-top: 2rem;
+        }
+
+        .about-text {
+            margin-top: 8rem;
+        }
+
+        .our-services {
+            background: linear-gradient(300deg, #03134f 80%, #fff 20%);
+
+        }
+
+        .service-title p {
+            font-style: italic;
+            background: none;
+        }
+
+        .our-services .card-text {
+            font-size: 14px;
+        }
+
+        .pre-footer p {
+            width: 450px;
+        }
+
+    }
+
+    @media (max-width: 768px) {
+        .hero-video {
+            display: none;
+        }
+
+        .hero {
+            background: url("/static/stanintegratedservices_app/img/stan-hero-1.avif") center / cover no-repeat;
+        }
+
+        .hero::before {
+            position: absolute;
+        }
+    }
+</style>
+<main>
+    <section class="hero">
+        <video autoplay muted loop playsinline class="hero-video">
+            <source src="{% static 'stanintegratedservices_app/videos/Cleaning_Man.mp4' %}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="hero-overlay-mobile d-block d-lg-none position-absolute top-0 start-0 w-100 h-100"
+            style="background: rgba(0, 0, 0, 0.65);">
+        </div>
+        <div class="hero-content container">
+            <h1 class="display-2 mb-3">
+                Property Maintenance &
+                Associated Services in the U.K
+            </h1>
+            <p>
+                We specialise in property maintenance in London and the south of the UK. Maintaining properties for
+                landlords and homeowners throughout London and the south of the United Kingdom who want property
+                maintenance services and repairs carried out quickly and with minimal fuss.
+            </p>
+            <div class="ctas">
+                <a href="{% url 'contact' %}" class="btn btn-light">
+                    Request a Quote
+                </a>
+                <a href="{% url 'services' %}" class="btn btn-outline-light">
+                    View Our Services
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-light about-us">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-4">
+                    <div class="about-text">
+                        <h4>Welcome to the</h4>
+                        <h2>Best Cleaning
+                            Company</h4>
+
+                            <p>Stan Integrated Service provides best professional cleaning company in the U.K.
+                                Incorporated in 2012,
+                                we
+                                tailor cleaning services to meet the needs of our ever-growing clientele. Customers’
+                                satisfaction is our priority.</p>
+                            <p class="extra-p">
+                                You get the best of cleaning when you use our services. We offer various cleaning
+                                services
+                                ranging from domestic household cleaning to commercial premises cleaning. You get
+                                maximum
+                                comfort and peace of mind when we do your cleaning for you. Meeting your needs and
+                                making
+                                your environment clean is paramount to us.
+                            </p>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6 perks">
+                    <div class="card-container ">
+                        <div class="card border-0 shadow-lg card-margin">
+                            <div class="card-body">
+                                <div class="card-img-top mb-3" alt="Card image">
+                                    <svg height="50px" width="50px" version="1.1" id="Layer_1"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        viewBox="0 0 512 512" xml:space="preserve" fill="#000000">
+                                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round">
+                                        </g>
+                                        <g id="SVGRepo_iconCarrier">
+                                            <path style="fill:#2A5637;"
+                                                d="M305.473,473.431c-18.973-8.237-31.233-26.923-31.233-47.607v-20.455 c0-10.793-8.75-19.543-19.543-19.543s-19.543,8.75-19.543,19.543v20.455c0,36.261,21.492,69.021,54.755,83.46 c2.534,1.101,5.174,1.622,7.771,1.622c7.549,0,14.739-4.4,17.938-11.766C319.915,489.239,315.374,477.729,305.473,473.431z">
+                                            </path>
+                                            <path style="fill:#489B6D;"
+                                                d="M495.536,41.667c-3.069-7.808-7.566-14.802-13.359-20.788 c-10.282-10.622-23.899-17.277-38.344-18.736c-64.121-6.484-133.397,17.349-187.834,64.088 C201.561,19.49,132.289-4.339,68.166,2.143c-14.445,1.459-28.062,8.114-38.344,18.736c-5.794,5.987-10.289,12.98-13.359,20.791 c-29.146,74.15-19.184,164.71,26.646,242.246c23.76,40.198,55.922,74.499,93.008,99.193c36.378,24.224,76.657,38.611,116.482,41.883 c0.532,0.044,1.064-0.078,1.6-0.078h3.606c0.534,0,1.067,0.122,1.6,0.078c39.825-3.27,80.104-17.73,116.482-41.954 c37.086-24.695,69.246-58.959,93.008-99.158C514.722,206.343,524.682,115.82,495.536,41.667z">
+                                            </path>
+                                            <path style="fill:#A2CE86;"
+                                                d="M256,66.231C201.561,19.49,132.289-4.339,68.166,2.143c-14.445,1.459-28.062,8.114-38.344,18.736 c-5.794,5.987-10.289,12.98-13.359,20.791c-29.146,74.15-19.184,164.71,26.646,242.246c23.76,40.198,55.922,74.499,93.008,99.193 c36.378,24.224,76.657,38.611,116.482,41.883c0.532,0.044,1.064-0.078,1.6-0.078h1.803V66.231H256z">
+                                            </path>
+                                        </g>
+                                    </svg>
+                                </div>
+                                <h2 class="card-title"> Eco Friendly Cleaning Products</h2>
+                                <p class="card-text">
+                                    We use products that are eco-friendly
+                                </p>
+                            </div>
+                        </div>
+                        <div class="card border-0 shadow-lg">
+                            <div class="card-body">
+                                <div class="card-img-top mb-3" alt="Card image">
+                                    <svg fill="#000000" width="50px" height="50px" viewBox="0 0 14 14" role="img"
+                                        focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round">
+                                        </g>
+                                        <g id="SVGRepo_iconCarrier">
+                                            <g fill="green">
+                                                <path
+                                                    d="M9.21052629 1.96315795l3.7578947.50526315-3.09473681 3.0947368zM4.78947371 12.06842099l-3.7578947-.50526315 3.09473681-3.0947368zM1.94736848 4.80526318l.50526315-3.7578947 3.0947368 3.09473681z">
+                                                </path>
+                                                <path
+                                                    d="M2.3578948 6.13157895l-1.32631578.25263158c-.03157895.22105263-.03157895.41052631-.03157895.63157894 0 1.45263156.50526315 2.84210523 1.45263156 3.91578943l.94736841-.82105262c-.72631578-.85263157-1.13684209-1.95789472-1.13684209-3.09473681 0-.28421052.03157895-.6.09473684-.88421052zM7 1.01578954c-1.70526314 0-3.2210526.72631578-4.32631574 1.86315787l.88421052.88421052C4.44210529 2.84736847 5.64210528 2.27894742 7 2.27894742c.28421052 0 .6.03157895.88421052.09473684l.22105262-1.23157893C7.75789473 1.04736849 7.37894736 1.01578954 7 1.01578954zm4.6421052 6.88421045l1.32631578-.25263158c.03157895-.22105263.03157895-.41052631.03157895-.63157894 0-1.38947367-.4736842-2.74736839-1.35789472-3.82105259l-.97894736.78947368c.69473684.85263157 1.0736842 1.92631577 1.0736842 2.99999996 0 .31578947-.03157895.63157894-.09473684.91578947zm-1.19999998 2.36842102C9.55789471 11.18421047 8.35789472 11.75263152 7 11.75263152c-.28421052 0-.6-.03157895-.88421052-.09473684l-.22105262 1.23157893c.37894736.0631579.75789472.09473684 1.10526314.09473684 1.70526314 0 3.2210526-.72631578 4.32631574-1.86315787l-.88421052-.85263157z">
+                                                </path>
+                                                <path
+                                                    d="M12.05263152 9.22631576l-.50526315 3.7578947-3.0947368-3.09473681z">
+                                                </path>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </div>
+                                <h2 class="card-title">Professional Cleaning Processes</h2>
+                                <p class="card-text">
+                                    Be sure your building gets the best professional treatment
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-container">
+                        <div class="card border-0 shadow-lg card-margin">
+                            <div class="card-body">
+                                <div class="card-img-top mb-3" alt="Card image">
+                                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64"
+                                        xml:space="preserve" width="64px" height="64px" fill="#000000">
+                                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round">
+                                        </g>
+                                        <g id="SVGRepo_iconCarrier">
+                                            <style type="text/css">
+                                                .st0 {
+                                                    fill: #76C2AF;
+                                                }
+
+                                                .st1 {
+                                                    opacity: 0.2;
+                                                }
+
+                                                .st2 {
+                                                    fill: #231F20;
+                                                }
+
+                                                .st3 {
+                                                    fill: #4F5D73;
+                                                }
+
+                                                .st4 {
+                                                    fill: #F5CF87;
+                                                }
+
+                                                .st5 {
+                                                    fill: #FFFFFF;
+                                                }
+                                            </style>
+                                            <g id="Layer_1">
+                                                <g>
+                                                    <circle class="st0" cx="32" cy="32" r="32"></circle>
+                                                </g>
+                                                <g class="st1">
+                                                    <path class="st2"
+                                                        d="M49.9,46.2L35.8,32.1c-1-1-2.5-1.4-3.8-1l-8.1-8l-3-5.9l-5.9-3L12.1,17l3,5.9l5.9,3l0,0l8.1,8 c-0.4,1.3,0,2.8,1,3.8l14.1,14.1c1.6,1.6,4.1,1.6,5.7,0C51.5,50.3,51.5,47.8,49.9,46.2z">
+                                                    </path>
+                                                </g>
+                                                <g>
+                                                    <polygon class="st3"
+                                                        points="34.5,37.3 18.4,21.4 21.3,18.6 37.4,34.5 "></polygon>
+                                                </g>
+                                                <g>
+                                                    <path class="st4"
+                                                        d="M49.9,49.9c-1.6,1.6-4.1,1.6-5.7,0L30.1,35.8c-1.6-1.6-1.6-4.1,0-5.7l0,0c1.6-1.6,4.1-1.6,5.7,0l14.1,14.1 C51.5,45.8,51.5,48.3,49.9,49.9L49.9,49.9z">
+                                                    </path>
+                                                </g>
+                                                <g class="st1">
+                                                    <path class="st2"
+                                                        d="M53.3,18.4l-6.5,6.5c-1.6,1.6-4.1,1.6-5.7,0c-1.6-1.6-1.6-4.1,0-5.7l6.5-6.5C46.5,12.3,45.3,12,44,12 c-5.5,0-10,4.5-10,10c0,1.3,0.3,2.5,0.7,3.6l-11,11C22.5,36.3,21.3,36,20,36c-5.5,0-10,4.5-10,10c0,1.3,0.3,2.5,0.7,3.6l6.5-6.5 c1.6-1.6,4.1-1.6,5.7,0c1.6,1.6,1.6,4.1,0,5.7l-6.5,6.5c1.1,0.4,2.4,0.7,3.6,0.7c5.5,0,10-4.5,10-10c0-1.3-0.3-2.5-0.7-3.6l11-11 c1.1,0.4,2.4,0.7,3.6,0.7c5.5,0,10-4.5,10-10C54,20.7,53.7,19.5,53.3,18.4z">
+                                                    </path>
+                                                </g>
+                                                <g>
+                                                    <rect x="23.4" y="28"
+                                                        transform="matrix(0.7071 -0.7071 0.7071 0.7071 -13.2548 32)"
+                                                        class="st5" width="17.1" height="8"></rect>
+                                                </g>
+                                                <g>
+                                                    <polygon class="st3"
+                                                        points="21,23.9 15.1,20.9 12.1,15 14.9,12.1 20.8,15.2 23.9,21.1 ">
+                                                    </polygon>
+                                                </g>
+                                                <g>
+                                                    <g>
+                                                        <path class="st5"
+                                                            d="M46.8,22.8c-1.6,1.6-4.1,1.6-5.7,0c-1.6-1.6-1.6-4.1,0-5.7l6.5-6.5C46.5,10.3,45.3,10,44,10 c-5.5,0-10,4.5-10,10c0,5.5,4.5,10,10,10s10-4.5,10-10c0-1.3-0.3-2.5-0.7-3.6L46.8,22.8z">
+                                                        </path>
+                                                    </g>
+                                                </g>
+                                                <g>
+                                                    <g>
+                                                        <path class="st5"
+                                                            d="M17.2,41.2c1.6-1.6,4.1-1.6,5.7,0c1.6,1.6,1.6,4.1,0,5.7l-6.5,6.5c1.1,0.4,2.4,0.7,3.6,0.7 c5.5,0,10-4.5,10-10c0-5.5-4.5-10-10-10s-10,4.5-10,10c0,1.3,0.3,2.5,0.7,3.6L17.2,41.2z">
+                                                        </path>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                            <g id="Layer_2"> </g>
+                                        </g>
+                                    </svg>
+                                </div>
+                                <h2 class="card-title">The Best Of Cleaning Equipments</h2>
+                                <p class="card-text">
+                                    We’ll clean your offices with the best and appropriate types of equipment
+                                </p>
+                            </div>
+                        </div>
+                        <div class="card border-0 shadow-lg">
+                            <div class="card-body">
+                                <div class="card-img-top mb-3" alt="Card image">
+                                    <svg width="50px" height="50px" viewBox="-10 0 63.999 63.999" id="Layer_1"
+                                        version="1.1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000">
+                                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round">
+                                        </g>
+                                        <g id="SVGRepo_iconCarrier">
+                                            <g id="Shape_34_">
+                                                <g>
+                                                    <polygon points="12,39.999 12,63.999 22,56 32,63.999 32,39.999 "
+                                                        style="fill:#CCCCCC;"></polygon>
+                                                </g>
+                                            </g>
+                                            <g id="Shape_35_">
+                                                <g>
+                                                    <polygon points="22,56 26,59.199 26,39.999 18,39.999 18,59.199 "
+                                                        style="fill-rule:evenodd;clip-rule:evenodd;fill:#75A64B;">
+                                                    </polygon>
+                                                </g>
+                                            </g>
+                                            <g id="Shape_36_">
+                                                <g>
+                                                    <circle cx="22" cy="22" r="22" style="fill:#88C057;"></circle>
+                                                </g>
+                                            </g>
+                                            <g id="Star_1_">
+                                                <g>
+                                                    <path
+                                                        d="M33.991,18.312c-0.149-0.452-0.542-0.787-1.022-0.875l-6.554-1.202l-3.221-5.572 c-0.235-0.409-0.682-0.663-1.166-0.663c-0.483,0-0.931,0.254-1.166,0.663l-3.22,5.572l-6.554,1.202 c-0.48,0.088-0.873,0.423-1.023,0.875c-0.15,0.45-0.034,0.945,0.303,1.288l4.553,4.639l-0.826,6.304 c-0.062,0.467,0.145,0.93,0.536,1.207c0.233,0.166,0.511,0.25,0.79,0.25c0.19,0,0.382-0.039,0.561-0.12l6.047-2.707l6.046,2.707 c0.18,0.081,0.371,0.12,0.562,0.12c0.279,0,0.556-0.084,0.789-0.25c0.393-0.277,0.598-0.74,0.537-1.207l-0.826-6.304l4.553-4.639 C34.025,19.257,34.142,18.762,33.991,18.312z"
+                                                        style="fill:#FFFFFF;"></path>
+                                                </g>
+                                            </g>
+                                            <g></g>
+                                            <g></g>
+                                            <g></g>
+                                            <g></g>
+                                            <g></g>
+                                            <g></g>
+                                            <g></g>
+                                            <g></g>
+                                            <g></g>
+                                            <g></g>
+                                            <g></g>
+                                            <g></g>
+                                            <g></g>
+                                            <g></g>
+                                            <g></g>
+                                        </g>
+                                    </svg>
+                                </div>
+                                <h2 class="card-title">Certified Cleaning Staff</h2>
+                                <p class="card-text">
+                                    Our staffs are well-trained and certified professionals.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="our-services">
+        <div class="container ">
+            <div class="text-center mb-5 service-title">
+                <h2 class="fw-bold text-white">What We Do</h2>
+                <p class="text-white mb-0">
+                    Complete indoor and outdoor services for homes, offices, shops and estates.
+                </p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 border-0">
+                        <div class="card-body">
+                            <div class="card-img-top mb-3" alt="Card image">
+                                <svg height="64px" width="64px" version="1.1" id="Layer_1"
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    viewBox="0 0 512 512" xml:space="preserve" fill="#000000">
+                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                    <g id="SVGRepo_iconCarrier">
+                                        <path style="fill:#D4F2E8;"
+                                            d="M0.798,386.927c0,17.637,14.297,31.933,31.933,31.933h2.129c17.637,0,31.933-14.297,31.933-31.933 V227.879c0-16.24,12.733-29.967,28.967-30.413c16.843-0.462,30.642,13.054,30.642,29.793v74.511 c0,17.637,14.297,31.933,31.933,31.933h2.129c17.637,0,31.933-14.297,31.933-31.933v-74.511c0-16.461,13.344-29.805,29.805-29.805 h112.832c17.637,0,31.933-14.297,31.933-31.933V46.302H8.782c-4.409,0-7.983,3.574-7.983,7.983V386.927z">
+                                        </path>
+                                        <path style="fill:#62C9CC;"
+                                            d="M32.732,402.894c-8.818,0-15.967-7.149-15.967-15.967V54.289c0-4.41,3.575-7.984,7.985-7.983 l326.251,0.09v119.126c0,8.818-7.149,15.967-15.967,15.967H222.204c-25.279,0-45.771,20.493-45.771,45.771v74.511 c0,8.818-7.149,15.967-15.967,15.967h-2.129c-8.818,0-15.967-7.149-15.967-15.967v-73.7c0-25.612-20.959-47.015-46.566-46.576 c-24.873,0.426-44.976,20.792-44.976,45.765v159.667c0,8.818-7.149,15.967-15.967,15.967H32.732z">
+                                        </path>
+                                        <path style="fill:#666666;"
+                                            d="M269.039,358.719c-4.41,0-7.983-3.574-7.983-7.983V227.26c0-22.011,17.906-39.917,39.917-39.917 h170.312c13.206,0,23.95-10.743,23.95-23.95v-55.351c0-13.207-10.745-23.95-23.95-23.95H460.64c-4.41,0-7.983-3.574-7.983-7.983 s3.573-7.983,7.983-7.983h10.644c22.011,0,39.917,17.906,39.917,39.917v55.351c0,22.011-17.906,39.917-39.917,39.917H300.973 c-13.206,0-23.95,10.743-23.95,23.95v123.476C277.023,355.145,273.45,358.719,269.039,358.719z">
+                                        </path>
+                                        <path style="fill:#F2F2F2;"
+                                            d="M401.556,0.175c-0.173-0.012-0.347-0.017-0.521-0.017L111.505,0c-0.001,0-0.003,0-0.004,0 c-2.116,0-4.147,0.841-5.644,2.336c-1.498,1.498-2.34,3.529-2.34,5.647v127.734c0,4.409,3.573,7.983,7.983,7.983h289.53 c0.758,0,1.491-0.105,2.186-0.303c36.811-3.281,65.406-34.39,65.406-71.547C468.624,34.136,439.164,2.653,401.556,0.175z">
+                                        </path>
+                                        <path style="fill:#E5E5E5;"
+                                            d="M111.501,0c-39.619,0-71.85,32.232-71.85,71.85s32.232,71.85,71.85,71.85s71.85-32.232,71.85-71.85 S151.12,0,111.501,0z">
+                                        </path>
+                                        <path style="fill:#B2B2B2;"
+                                            d="M111.501,29.805c-23.184,0-42.046,18.862-42.046,42.046s18.862,42.046,42.046,42.046 s42.046-18.862,42.046-42.046S134.685,29.805,111.501,29.805z">
+                                        </path>
+                                        <path style="fill:#EB6836;"
+                                            d="M285.006,342.753h-31.933c-13.206,0-23.95,10.743-23.95,23.95V488.05 c0,13.207,10.745,23.95,23.95,23.95h31.933c13.206,0,23.95-10.743,23.95-23.95V366.703 C308.956,353.496,298.212,342.753,285.006,342.753z">
+                                        </path>
+                                        <path style="fill:#C74B38;"
+                                            d="M229.123,366.703V488.05c0,13.207,10.745,23.95,23.95,23.95V342.753 C239.867,342.753,229.123,353.496,229.123,366.703z">
+                                        </path>
+                                        <path style="fill:#E5E5E5;"
+                                            d="M231.252,109.106c9.121,0,17.54-3.076,24.269-8.245c2.495,19.63,19.302,34.856,39.598,34.856 c17.729,0,32.799-11.621,37.988-27.645c6.973,5.95,16.015,9.549,25.88,9.549c22.011,0,39.917-17.906,39.917-39.917V0.155 L191.336,0.043v69.147C191.335,91.2,209.241,109.106,231.252,109.106z">
+                                        </path>
+                                        <path style="fill:#62C9CC;"
+                                            d="M231.252,93.139c13.206,0,23.95-10.743,23.95-23.95v-4.258c0-4.403,3.581-7.983,7.983-7.983 s7.983,3.581,7.983,7.983V95.8c0,13.207,10.745,23.95,23.95,23.95s23.95-10.743,23.95-23.95V54.287c0-4.403,3.581-7.983,7.983-7.983 c4.403,0,7.983,3.581,7.983,7.983v23.418c0,13.207,10.745,23.95,23.95,23.95s23.95-10.743,23.95-23.95V0.147L207.301,0.052v69.137 C207.301,82.396,218.046,93.139,231.252,93.139z">
+                                        </path>
+                                    </g>
+                                </svg>
+                            </div>
+                            <h5 class="card-title">Painting & Decorating</h5>
+                            <p class="card-text">
+                                Interior and exterior painting with neat finishing and quality materials
+                                for a beautiful, long-lasting look.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card h-100 border-0">
+                        <div class="card-body">
+                            <div class="card-img-top mb-3" alt="Card image">
+                                <svg height="64px" width="64px" version="1.1" id="Layer_1"
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    viewBox="0 0 512 512" xml:space="preserve" fill="#000000">
+                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                    <g id="SVGRepo_iconCarrier">
+                                        <g>
+                                            <path style="fill:#F1B14F;"
+                                                d="M256,0c141.383,0,256,114.617,256,256S397.383,512,256,512S0,397.383,0,256S114.617,0,256,0L256,0z">
+                                            </path>
+                                            <path style="fill:#FED9CA;" d="M512,255.736v0.01V255.736z"></path>
+                                            <path style="fill:#F0973E;"
+                                                d="M90.662,348.585l-0.026,0.026c9.259,9.44,16.545,19.299,21.304,28.28 c0,0,45.688,44.68,46.819,46.819c0,0,17.005,16.793,36.082,35.715c-4.764-8.769-11.89-18.328-20.88-27.494l0.026-0.026 l-0.992-0.982l-0.062-0.057c-21.795-21.795-33.163-46.225-26.812-56.502c-1.917,1.183-4.325,1.752-7.12,1.752 C127.054,376.12,108.107,365.703,90.662,348.585L90.662,348.585z M223.509,129.989l-0.072,0.057L64.14,289.343 c-9.027,9.027,2.361,35.095,25.469,58.208l0.057,0.052l-0.047-0.047c-23.107-23.107-34.506-49.165-25.469-58.208L223.509,129.989 L223.509,129.989z M308.973,117.604c1.819,1.648,3.633,3.374,5.425,5.167l0,0C312.606,120.978,310.792,119.252,308.973,117.604 L308.973,117.604z M308.829,117.475l0.088,0.078L308.829,117.475L308.829,117.475z M403.604,117.252 c23.107,23.107,34.506,49.165,25.469,58.208l-0.119,0.119l0,0l-30.874,30.874c22.87,23.02,34.108,48.86,25.112,57.856l-0.119,0.119 l0,0L231.151,456.345c-2.103,2.103-5.131,3.1-8.825,3.1c-5.487,0-12.448-2.196-20.059-6.226l-6.815,6.815 c23.965,23.769,50.938,50.638,51.527,51.738l0.76,0.021l1.421,0.036c2.279,0.062,4.547,0.171,6.836,0.171 c141.383,0,256-114.617,256-256v-0.253v-0.005c-0.01-10.882-0.78-21.583-2.108-32.114 C509.153,222.848,404.482,118.131,403.604,117.252L403.604,117.252z M265.017,94.202c-3.669,0-6.676,0.982-8.779,3.054 C258.341,95.189,261.348,94.207,265.017,94.202c0.677,0,1.374,0.031,2.093,0.098C266.391,94.238,265.694,94.202,265.017,94.202 L265.017,94.202z M345.278,91.902l-30.874,30.874l-0.005-0.005l0.005,0.005L345.278,91.902L345.278,91.902L345.278,91.902 L345.278,91.902z M354.222,88.683c-3.694,0-6.722,0.997-8.825,3.1C347.499,89.681,350.527,88.683,354.222,88.683L354.222,88.683 L354.222,88.683z">
+                                            </path>
+                                            <path style="fill:#E6E6E6;"
+                                                d="M345.278,91.902L153.355,283.825c-9.042,9.042,2.361,35.1,25.469,58.208 s49.165,34.506,58.208,25.469l191.922-191.922L345.278,91.902L345.278,91.902z">
+                                            </path>
+                                            <path style="fill:#E2D1B6;"
+                                                d="M370.86,149.996l-0.01,0.01c9.761,9.761,17.387,20.023,22.327,29.339l-12.287,12.287 c5.596,4.072,11.3,8.934,16.835,14.468l0.351,0.357l30.874-30.874c-2.098,2.025-5.084,2.981-8.707,2.981 C408.058,178.56,388.594,167.725,370.86,149.996L370.86,149.996z">
+                                            </path>
+                                            <path style="fill:#FFFFFF;"
+                                                d="M429.073,175.46c-9.042,9.042-35.105-2.361-58.208-25.469 c-23.107-23.107-34.506-49.165-25.469-58.208c9.042-9.042,35.105,2.361,58.208,25.469 C426.711,140.36,438.11,166.418,429.073,175.46L429.073,175.46z">
+                                            </path>
+                                            <path style="fill:#6EBEC5;"
+                                                d="M413.055,159.447c-4.47,4.47-19.651-3.472-33.912-17.734 c-14.261-14.261-22.203-29.442-17.734-33.912c4.47-4.47,19.651,3.472,33.912,17.734S417.524,154.978,413.055,159.447 L413.055,159.447z">
+                                            </path>
+                                            <path style="fill:#2F8E98;"
+                                                d="M391.658,126.036c0.532,0.512,1.064,1.033,1.597,1.566 C392.722,127.07,392.19,126.548,391.658,126.036L391.658,126.036z M391.58,125.959L391.58,125.959L391.58,125.959L391.58,125.959z M391.286,125.675l0.103,0.098L391.286,125.675L391.286,125.675z M391.074,125.478l0.207,0.196L391.074,125.478L391.074,125.478z M390.464,124.905l0.532,0.501L390.464,124.905L390.464,124.905z M379.654,116.126c3.379,2.31,7.069,5.281,10.789,8.758 C386.723,121.407,383.039,118.436,379.654,116.126L379.654,116.126z M379.634,116.11l0.021,0.016L379.634,116.11L379.634,116.11z M378.905,115.62l0.641,0.429L378.905,115.62L378.905,115.62z M378.885,115.609l0.01,0.01L378.885,115.609L378.885,115.609z M364.37,113.186c-0.682,4.805,6.164,15.78,16.84,26.456c10.19,10.19,20.643,16.886,25.758,16.886c1.013,0,1.814-0.264,2.361-0.811 c3.328-3.328-3.87-15.915-16.075-28.119l-12.045,12.045C370.534,128.966,363.688,117.991,364.37,113.186L364.37,113.186z M367.76,110.721l0.072,0.005L367.76,110.721L367.76,110.721z M367.496,110.716L367.496,110.716L367.496,110.716L367.496,110.716z">
+                                            </path>
+                                            <path style="fill:#E6E6E6;"
+                                                d="M393.177,179.341c-4.94-9.316-12.572-19.583-22.332-29.344 c-23.107-23.107-49.16-34.516-58.208-25.469L153.34,283.82c-9.027,9.027,2.361,35.1,25.469,58.208l1.08,1.013l-0.052,0.052 c9.259,9.44,16.545,19.299,21.304,28.28l7.012-7.012l0,0L393.177,179.341L393.177,179.341z">
+                                            </path>
+                                            <path style="fill:#2F8E98;"
+                                                d="M391.58,125.959l0.077,0.072L391.58,125.959L391.58,125.959z M391.389,125.773l0.191,0.186 L391.389,125.773L391.389,125.773z M391.286,125.675L391.286,125.675L391.286,125.675L391.286,125.675z M390.996,125.401 l0.078,0.072L390.996,125.401L390.996,125.401z M390.443,124.884l0.021,0.021L390.443,124.884L390.443,124.884z M379.654,116.126 L379.654,116.126L379.654,116.126L379.654,116.126z M379.546,116.054l0.088,0.062L379.546,116.054L379.546,116.054z M378.9,115.62 L378.9,115.62L378.9,115.62L378.9,115.62z M367.837,110.721c2.635,0.14,6.547,1.896,11.052,4.888 C374.379,112.623,370.472,110.866,367.837,110.721L367.837,110.721z M367.496,110.716c-1.008,0-1.808,0.264-2.361,0.811 c-0.413,0.413-0.667,0.977-0.765,1.664c0.098-0.687,0.351-1.245,0.765-1.664C365.683,110.974,366.483,110.716,367.496,110.716 L367.496,110.716z M367.496,110.716L367.496,110.716l0.264,0.005L367.496,110.716L367.496,110.716z">
+                                            </path>
+                                            <path style="fill:#146A75;"
+                                                d="M367.496,110.716L367.496,110.716c-1.013,0-1.814,0.264-2.361,0.811 c-0.413,0.413-0.667,0.977-0.765,1.664c-0.682,4.805,6.164,15.78,16.84,26.456l12.045-12.045c-0.532-0.532-1.064-1.054-1.597-1.566 l-0.078-0.072l0,0l-0.191-0.186l-0.103-0.098l0,0l-0.207-0.196l-0.077-0.072l-0.532-0.501l-0.021-0.021 c-3.72-3.472-7.41-6.449-10.789-8.758h-0.005l-0.021-0.016l-0.088-0.062l-0.641-0.429H378.9l-0.016-0.01 c-4.506-2.987-8.417-4.743-11.052-4.888l-0.072-0.005L367.496,110.716L367.496,110.716z">
+                                            </path>
+                                            <path style="fill:#D45446;"
+                                                d="M339.397,180.746L147.475,372.669c-9.042,9.042,2.361,35.1,25.469,58.208 s49.165,34.506,58.208,25.469l191.923-191.922L339.397,180.746L339.397,180.746z">
+                                            </path>
+                                            <path style="fill:#C2382C;"
+                                                d="M172.995,430.928l0.992,0.982l0.026-0.026L172.995,430.928L172.995,430.928z M364.98,238.84 l-0.01,0.01c9.761,9.761,17.387,20.023,22.327,29.339l-176.855,176.85l-8.164,8.164l-0.01,0.01 c7.616,4.03,14.576,6.226,20.059,6.226c3.695,0,6.722-0.997,8.825-3.1l191.923-191.922c-2.098,2.025-5.084,2.981-8.707,2.981 C402.183,267.409,382.713,256.568,364.98,238.84L364.98,238.84z">
+                                            </path>
+                                            <path style="fill:#E46A5D;"
+                                                d="M423.193,264.309c-9.042,9.042-35.105-2.361-58.208-25.469 c-23.107-23.107-34.506-49.165-25.469-58.208c9.042-9.042,35.1,2.361,58.208,25.469 C420.831,229.203,432.235,255.266,423.193,264.309L423.193,264.309z">
+                                            </path>
+                                            <path style="fill:#FFFFFF;"
+                                                d="M407.175,248.291c-4.47,4.464-19.651-3.472-33.912-17.734 c-14.261-14.261-22.203-29.442-17.734-33.912c4.464-4.47,19.651,3.472,33.912,17.734 C403.702,228.64,411.644,243.826,407.175,248.291L407.175,248.291z">
+                                            </path>
+                                            <path style="fill:#D45446;"
+                                                d="M403.449,244.565c-3.328,3.328-15.915-3.87-28.119-16.075 c-12.205-12.205-19.403-24.792-16.075-28.119c3.328-3.328,15.915,3.87,28.12,16.075S406.777,241.243,403.449,244.565 L403.449,244.565z">
+                                            </path>
+                                            <path style="fill:#D45446;"
+                                                d="M364.964,238.84c-23.107-23.107-49.16-34.516-58.208-25.469L147.465,372.669 c-9.027,9.027,2.361,35.1,25.469,58.208l1.08,1.013l-0.052,0.052c9.259,9.44,16.545,19.299,21.304,28.28l7.012-7.012l8.164-8.164 l176.855-176.855C382.357,258.868,374.725,248.606,364.964,238.84L364.964,238.84z">
+                                            </path>
+                                            <path style="fill:#E9A9A2;"
+                                                d="M361.57,199.559c-0.987,0.01-1.772,0.269-2.315,0.811c-0.553,0.553-0.816,1.359-0.811,2.377 c-0.005-1.018,0.258-1.824,0.811-2.377C359.797,199.833,360.583,199.57,361.57,199.559L361.57,199.559z M361.621,199.559 L361.621,199.559c5.1,0,15.527,6.671,25.696,16.829C377.148,206.235,366.721,199.559,361.621,199.559L361.621,199.559z">
+                                            </path>
+                                            <path style="fill:#C2382C;"
+                                                d="M361.621,199.559h-0.047c-0.987,0.01-1.772,0.269-2.315,0.811c-0.553,0.553-0.816,1.359-0.811,2.377 c0.016,5.115,6.707,15.563,16.886,25.743l12.045-12.045l-0.062-0.062C377.148,206.23,366.721,199.559,361.621,199.559 L361.621,199.559z">
+                                            </path>
+                                            <path style="fill:#5AABB3;"
+                                                d="M256.072,97.421L64.15,289.343c-9.042,9.042,2.361,35.1,25.469,58.208s49.165,34.506,58.208,25.469 l191.922-191.923L256.072,97.421L256.072,97.421z">
+                                            </path>
+                                            <path style="fill:#277F8A;"
+                                                d="M281.655,155.515L89.619,347.551c17.728,17.728,37.198,28.569,49.382,28.569 c3.695,0,6.722-0.997,8.825-3.1l191.922-191.923c-2.098,2.02-5.084,2.981-8.707,2.981 C318.853,184.084,299.388,173.243,281.655,155.515L281.655,155.515z">
+                                            </path>
+                                            <path style="fill:#6EBEC5;"
+                                                d="M339.868,180.979c-9.042,9.042-35.1-2.361-58.208-25.469 c-23.107-23.107-34.506-49.165-25.469-58.208c9.042-9.042,35.105,2.361,58.208,25.469 C337.506,145.878,348.91,171.941,339.868,180.979L339.868,180.979z">
+                                            </path>
+                                            <path style="fill:#FFFFFF;"
+                                                d="M323.85,164.966c-4.47,4.47-19.651-3.472-33.912-17.734c-14.261-14.261-22.203-29.442-17.734-33.912 c4.47-4.47,19.651,3.472,33.912,17.734C320.377,145.315,328.319,160.501,323.85,164.966L323.85,164.966z">
+                                            </path>
+                                            <path style="fill:#6EBEC5;"
+                                                d="M320.124,161.24c-3.328,3.328-15.915-3.87-28.12-16.075c-12.205-12.205-19.403-24.792-16.075-28.119 s15.915,3.87,28.119,16.075C316.254,145.325,323.452,157.912,320.124,161.24L320.124,161.24z">
+                                            </path>
+                                            <path style="fill:#5AABB3;"
+                                                d="M281.639,155.515c-23.107-23.107-49.16-34.516-58.208-25.469L64.14,289.343 c-9.027,9.027,2.361,35.095,25.469,58.208l1.08,1.013l-0.052,0.052c9.259,9.446,16.545,19.299,21.304,28.28l192.031-192.031 C299.032,175.543,291.4,165.281,281.639,155.515z">
+                                            </path>
+                                            <path style="fill:#6EBEC5;"
+                                                d="M278.291,116.234c-1.013,0-1.814,0.264-2.361,0.811c-0.553,0.553-0.816,1.359-0.811,2.377 c-0.005-1.018,0.258-1.824,0.811-2.377C276.482,116.498,277.283,116.234,278.291,116.234c5.1,0,15.527,6.671,25.696,16.829 C293.823,122.91,283.396,116.234,278.291,116.234L278.291,116.234z">
+                                            </path>
+                                            <path style="fill:#2F8E98;"
+                                                d="M278.291,116.234c-1.013,0-1.814,0.264-2.361,0.811c-0.553,0.553-0.816,1.359-0.811,2.377 c0.016,5.115,6.707,15.563,16.886,25.743l12.045-12.045l-0.062-0.062C293.818,122.905,283.396,116.234,278.291,116.234 L278.291,116.234z">
+                                            </path>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </div>
+                            <h5 class="card-title">Wallpaper Installation</h5>
+                            <p class="card-text">
+                                Modern wallpaper designs, professional installation, and replacement
+                                for homes and commercial spaces.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card h-100 border-0">
+                        <div class="card-body">
+                            <div class="card-img-top mb-3" alt="Card image">
+                                <svg height="64px" width="64px" version="1.1" id="Layer_1"
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    viewBox="0 0 512 512" xml:space="preserve" fill="#000000">
+                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                    <g id="SVGRepo_iconCarrier">
+                                        <path style="fill:#AF7AAE;"
+                                            d="M467.478,445.217H155.826l-22.261-256h356.174L467.478,445.217z"></path>
+                                        <path style="fill:#8E5B8E;"
+                                            d="M489.739,166.957v22.261l-1.936,22.261H135.501l-1.936-22.261v-22.261H489.739z">
+                                        </path>
+                                        <path style="fill:#D199D1;"
+                                            d="M512,144.696v22.261c0,12.295-9.966,22.261-22.261,22.261H133.565 c-12.295,0-22.261-9.966-22.261-22.261v-22.261c0-12.295,9.966-22.261,22.261-22.261h356.174 C502.034,122.435,512,132.401,512,144.696z">
+                                        </path>
+                                        <path style="fill:#A7E5CB;"
+                                            d="M478.609,434.087L478.609,434.087c0,18.441-14.949,33.391-33.391,33.391h-68.69 c1.231,3.482,1.908,7.227,1.908,11.13l0,0c0,18.441-14.949,33.391-33.391,33.391H33.391C14.949,512,0,497.05,0,478.609l0,0 c0-18.441,14.949-33.391,33.391-33.391h68.69c-1.231-3.482-1.908-7.227-1.908-11.13l0,0c0-18.441,14.949-33.391,33.391-33.391 h311.652C463.659,400.696,478.609,415.646,478.609,434.087z M387.37,155.719c4.885,0.475,9.464-0.659,13.325-2.895v46.99 c0,12.071,9.386,22.351,21.449,22.78c12.664,0.451,23.072-9.682,23.072-22.246v-77.913c0-6.147-4.983-11.13-11.13-11.13h-22.261 h-11.13h-22.261c-6.147,0-11.13,4.983-11.13,11.13v10.624C367.304,144.598,375.886,154.602,387.37,155.719z">
+                                        </path>
+                                        <path style="fill:#D7F3FF;"
+                                            d="M178.087,434.087c0,6.147-4.983,11.13-11.13,11.13h-33.391c-6.147,0-11.13-4.983-11.13-11.13 c0-6.147,4.983-11.13,11.13-11.13h33.391C173.104,422.957,178.087,427.94,178.087,434.087z M122.435,467.478H33.391 c-6.147,0-11.13,4.983-11.13,11.13s4.983,11.13,11.13,11.13h89.043c6.147,0,11.13-4.983,11.13-11.13 S128.582,467.478,122.435,467.478z M422.957,133.565c-6.147,0-11.13,4.983-11.13,11.13v55.652c0,6.147,4.983,11.13,11.13,11.13 c6.147,0,11.13-4.983,11.13-11.13v-55.652C434.087,138.548,429.104,133.565,422.957,133.565z">
+                                        </path>
+                                        <path style="fill:#A89B80;"
+                                            d="M356.174,378.435h66.783c49.178,0,89.043,39.866,89.043,89.043v33.391 c0,6.147-4.983,11.13-11.13,11.13H289.391c-49.178,0-89.043-39.866-89.043-89.043v-77.913c0-12.295,9.966-22.261,22.261-22.261 h89.043c12.295,0,22.261,9.966,22.261,22.261v11.13C333.913,368.469,343.879,378.435,356.174,378.435z">
+                                        </path>
+                                        <path style="fill:#C1B291;"
+                                            d="M512,467.478V512H333.913c-49.178,0-89.043-39.866-89.043-89.043v-77.913 c0-12.295,9.966-22.261,22.261-22.261h44.522c12.295,0,22.261,9.966,22.261,22.261v11.13c0,12.295,9.966,22.261,22.261,22.261 h44.522h22.261C472.134,378.435,512,418.301,512,467.478z">
+                                        </path>
+                                        <path style="fill:#A89B80;"
+                                            d="M512,467.478V512H378.435c-49.178,0-89.043-39.866-89.043-89.043v-44.522 c0,49.178,39.866,89.043,89.043,89.043H512z">
+                                        </path>
+                                        <path style="fill:#DBCBA1;"
+                                            d="M500.058,422.957H378.435c-49.178,0-89.043-39.866-89.043-89.043v-11.13h22.261 c12.295,0,22.261,9.966,22.261,22.261v11.13c0,12.295,9.966,22.261,22.261,22.261h66.783 C455.909,378.435,484.66,396.349,500.058,422.957z">
+                                        </path>
+                                        <path style="fill:#91F18B;"
+                                            d="M289.391,22.261v244.87v22.261H244.87V267.13V22.261C244.87,9.966,254.836,0,267.13,0 C279.425,0,289.391,9.966,289.391,22.261z">
+                                        </path>
+                                        <path style="fill:#6BAF6E;"
+                                            d="M267.13,22.261v267.13H244.87V22.261C244.87,9.966,254.836,0,267.13,0 c4.059,0,7.854,1.104,11.13,3.002C271.614,6.853,267.13,14.027,267.13,22.261z">
+                                        </path>
+                                        <path style="fill:#FFC248;"
+                                            d="M345.043,311.652L345.043,311.652c0,12.295-9.966,22.261-22.261,22.261H211.478 c-12.295,0-22.261-9.966-22.261-22.261l0,0c0-12.295,9.966-22.261,22.261-22.261h22.261v-11.13c0-6.147,4.983-11.13,11.13-11.13 h44.522c6.147,0,11.13,4.983,11.13,11.13v11.13h22.261C335.077,289.391,345.043,299.357,345.043,311.652z">
+                                        </path>
+                                        <path style="fill:#FFFF63;"
+                                            d="M345.043,311.652H189.217l0,0c0-12.295,9.966-22.261,22.261-22.261h111.304 C335.077,289.391,345.043,299.357,345.043,311.652L345.043,311.652z">
+                                        </path>
+                                    </g>
+                                </svg>
+                            </div>
+                            <h5 class="card-title">General Cleaning</h5>
+                            <p class="card-text">
+                                Deep cleaning, post-construction cleaning, move-in/move-out, and
+                                routine cleaning for apartments and offices.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card h-100 border-0">
+                        <div class="card-body">
+                            <div class="card-img-top mb-3" alt="Card image">
+                                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512"
+                                    xml:space="preserve" width="64px" height="64px" fill="#000000">
+                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                    <g id="SVGRepo_iconCarrier">
+                                        <circle style="fill:#D35933;" cx="256" cy="256" r="256"></circle>
+                                        <path style="fill:#B54324;"
+                                            d="M268.486,511.693c129.065-6.199,233.072-107.97,242.774-236.087L365.868,130.213l-4.293,33.063 l-33.063-33.063l-4.899,32.456l-32.456-32.456l-5.646,93.713l-97.501-97.501l-23.952,115.783l-30.158,39.379l43.446,43.444 l-11.938,83.585L268.486,511.693z">
+                                        </path>
+                                        <path style="fill:#A6A8AA;"
+                                            d="M322.07,234.537L322.07,234.537c6.06,0,10.973,4.913,10.973,10.973v108.565 c0,6.06-4.913,10.973-10.973,10.973l0,0c-6.06,0-10.973-4.913-10.973-10.973V245.51C311.098,239.45,316.011,234.537,322.07,234.537z ">
+                                        </path>
+                                        <path style="fill:#808183;"
+                                            d="M322.082,234.539v130.507c6.054-0.007,10.959-4.917,10.959-10.971V245.51 C333.043,239.454,328.137,234.544,322.082,234.539z">
+                                        </path>
+                                        <path style="fill:#386895;"
+                                            d="M304.556,308.002h35.03v91.731c0,7.377-5.98,13.357-13.357,13.357h-8.314 c-7.377,0-13.357-5.98-13.357-13.357v-91.731H304.556z">
+                                        </path>
+                                        <path style="fill:#273B7A;"
+                                            d="M322.082,308.002v105.088h4.144c7.377,0,13.357-5.98,13.357-13.357v-91.729h-17.501V308.002z">
+                                        </path>
+                                        <g>
+                                            <rect x="278.014" y="130.207" style="fill:#FFFFFF;" width="13.136"
+                                                height="93.884"></rect>
+                                            <rect x="315.371" y="130.207" style="fill:#FFFFFF;" width="13.136"
+                                                height="93.884"></rect>
+                                        </g>
+                                        <g>
+                                            <rect x="322.077" y="130.207" style="fill:#D0D1D3;" width="6.428"
+                                                height="93.884"></rect>
+                                            <rect x="352.728" y="130.207" style="fill:#D0D1D3;" width="13.136"
+                                                height="93.884"></rect>
+                                            <path style="fill:#D0D1D3;"
+                                                d="M365.866,214.685v18.263c0,10.099-8.187,18.287-18.287,18.287h-51.272 c-10.099,0-18.287-8.187-18.287-18.287v-18.263L365.866,214.685z">
+                                            </path>
+                                        </g>
+                                        <path style="fill:#A6A8AA;"
+                                            d="M322.082,214.685v36.549h25.497c10.099,0,18.287-8.187,18.287-18.287v-18.263h-43.784V214.685z">
+                                        </path>
+                                        <path style="fill:#D0D1D3;"
+                                            d="M212.959,286.263H146.08c-10.099,0-18.287-8.187-18.287-18.287v-83.184 c0-9.688,3.849-18.982,10.7-25.833l32.535-32.535c4.689-4.689,12.291-4.689,16.98,0l32.535,32.535 c6.851,6.851,10.7,16.144,10.7,25.833v83.184C231.246,278.076,223.06,286.263,212.959,286.263z">
+                                        </path>
+                                        <g>
+                                            <path style="fill:#A6A8AA;"
+                                                d="M220.546,158.96l-32.535-32.535c-2.331-2.331-5.382-3.501-8.439-3.515v163.352h33.387 c10.099,0,18.287-8.187,18.287-18.287v-83.184C231.246,175.104,227.397,165.812,220.546,158.96z">
+                                            </path>
+                                            <path style="fill:#A6A8AA;"
+                                                d="M179.521,234.537L179.521,234.537c6.06,0,10.973,4.913,10.973,10.973v108.565 c0,6.06-4.913,10.973-10.973,10.973l0,0c-6.06,0-10.973-4.913-10.973-10.973V245.51 C168.548,239.45,173.461,234.537,179.521,234.537z">
+                                            </path>
+                                        </g>
+                                        <path style="fill:#808183;"
+                                            d="M179.574,234.541v130.503c6.035-0.029,10.919-4.927,10.919-10.969V245.51 C190.493,239.468,185.608,234.568,179.574,234.541z">
+                                        </path>
+                                        <path style="fill:#386895;"
+                                            d="M162.006,308.002h35.03v91.731c0,7.377-5.98,13.357-13.357,13.357h-8.314 c-7.377,0-13.357-5.98-13.357-13.357v-91.731H162.006z">
+                                        </path>
+                                        <path style="fill:#273B7A;"
+                                            d="M179.574,308.002v105.088h4.105c7.377,0,13.357-5.98,13.357-13.357v-91.729h-17.461V308.002z">
+                                        </path>
+                                    </g>
+                                </svg>
+                            </div>
+                            <h5 class="card-title">Gardening</h5>
+                            <p class="card-text">
+                                Flower planting, trimming, and garden maintenance to keep your
+                                outdoor space fresh and attractive.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card h-100 border-0">
+                        <div class="card-body">
+                            <div class="card-img-top mb-3" alt="Card image">
+                                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512"
+                                    xml:space="preserve" width="64px" height="64px" fill="#000000">
+                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                    <g id="SVGRepo_iconCarrier">
+                                        <path style="fill:#FEF2CC;"
+                                            d="M484.208,372.121C501.976,337.269,512,297.81,512,256.007c0-141.384-114.616-256-256-256 c-141.385,0-256,114.616-256,256c0,119.496,81.878,219.865,192.589,248.078L484.208,372.121z">
+                                        </path>
+                                        <path style="fill:#FBD867;"
+                                            d="M345.439,233.351l-37.254,22.37L147.08,94.616l23.048,244.005l-89.351,53.653l111.767,111.767 c84.666,21.575,178.213-0.751,244.476-67.014c19.564-19.564,35.282-41.514,47.189-64.905L345.439,233.351z">
+                                        </path>
+                                        <polygon style="fill:#263230;"
+                                            points="33.39,222.616 154.712,244.877 176.973,367.311 87.929,367.311 33.39,244.877 ">
+                                        </polygon>
+                                        <polygon style="fill:#394B48;"
+                                            points="194.781,345.051 147.08,94.616 104.478,94.616 104.478,116.877 128.659,116.877 172.121,345.051 ">
+                                        </polygon>
+                                        <rect x="275.478" y="256.01" style="fill:#889391;" width="44.522"
+                                            height="66.783"></rect>
+                                        <g>
+                                            <polygon style="fill:#616F6D;"
+                                                points="275.477,256.007 252.044,322.79 286.608,322.79 286.608,256.007 ">
+                                            </polygon>
+                                            <rect x="308.87" y="256.01" style="fill:#616F6D;" width="22.261"
+                                                height="66.783"></rect>
+                                        </g>
+                                        <polygon style="fill:#889391;"
+                                            points="264.347,256.007 253.216,322.79 275.477,322.79 275.477,256.007 ">
+                                        </polygon>
+                                        <polygon style="fill:#B0B7B6;"
+                                            points="242.086,256.007 230.955,322.79 264.347,322.79 264.347,256.007 ">
+                                        </polygon>
+                                        <rect x="219.826" y="256.01" style="fill:#C3C9C8;" width="22.261"
+                                            height="66.783"></rect>
+                                        <polygon style="fill:#394B48;"
+                                            points="275.477,200.355 264.347,244.877 314.434,222.616 303.303,200.355 ">
+                                        </polygon>
+                                        <polygon style="fill:#4C6460;"
+                                            points="247.651,200.355 236.521,222.616 275.477,244.877 275.477,200.355 ">
+                                        </polygon>
+                                        <path style="fill:#263230;"
+                                            d="M319.442,222.616h-43.965l-19.478,33.391l19.478,22.261h80.696v-18.922 C356.173,239.061,339.729,222.616,319.442,222.616z">
+                                        </path>
+                                        <rect x="194.783" y="222.619" style="fill:#394B48;" width="80.696"
+                                            height="55.652"></rect>
+                                        <polygon style="fill:#F63341;"
+                                            points="275.477,300.529 252.044,345.051 342.26,322.79 331.129,300.529 ">
+                                        </polygon>
+                                        <polygon style="fill:#F85C67;"
+                                            points="219.825,300.529 208.695,322.79 275.477,345.051 275.477,300.529 ">
+                                        </polygon>
+                                        <polygon style="fill:#C92B31;"
+                                            points="264.347,322.79 230.955,378.442 392.347,367.311 392.347,322.79 ">
+                                        </polygon>
+                                        <polygon style="fill:#F63341;"
+                                            points="136.347,322.79 136.347,367.311 264.347,378.442 264.347,322.79 ">
+                                        </polygon>
+                                        <polygon style="fill:#616F6D;"
+                                            points="392.347,367.311 264.347,367.311 253.216,378.442 264.347,389.572 392.347,389.572 ">
+                                        </polygon>
+                                        <rect x="136.348" y="367.315" style="fill:#889391;" width="128" height="22.261">
+                                        </rect>
+                                        <path style="fill:#263230;"
+                                            d="M389.564,300.529l-22.261,55.652l22.261,55.652c30.736,0,55.652-24.917,55.652-55.652 S420.3,300.529,389.564,300.529z">
+                                        </path>
+                                        <path style="fill:#394B48;"
+                                            d="M333.912,356.181c0,30.736,24.917,55.652,55.652,55.652V300.529 C358.829,300.529,333.912,325.445,333.912,356.181z">
+                                        </path>
+                                        <path style="fill:#D8F4F2;"
+                                            d="M389.564,322.79l-11.13,33.391l11.13,33.391c18.442,0,33.391-14.95,33.391-33.391 C422.955,337.74,408.005,322.79,389.564,322.79z">
+                                        </path>
+                                        <path style="fill:#FFFFFF;"
+                                            d="M356.173,356.181c0,18.441,14.949,33.391,33.391,33.391V322.79 C371.122,322.79,356.173,337.74,356.173,356.181z">
+                                        </path>
+                                        <path style="fill:#263230;"
+                                            d="M127.999,278.268l-26.713,66.783l26.713,66.783c36.883,0,66.783-29.9,66.783-66.783 S164.882,278.268,127.999,278.268z">
+                                        </path>
+                                        <path style="fill:#394B48;"
+                                            d="M61.216,345.051c0,36.883,29.9,66.783,66.783,66.783V278.268 C91.116,278.268,61.216,308.168,61.216,345.051z">
+                                        </path>
+                                        <path style="fill:#D8F4F2;"
+                                            d="M127.999,304.981l-13.357,40.07l13.357,40.07c22.13,0,40.07-17.94,40.07-40.07 S150.128,304.981,127.999,304.981z">
+                                        </path>
+                                        <path style="fill:#FFFFFF;"
+                                            d="M87.929,345.051c0,22.13,17.94,40.07,40.07,40.07v-80.139 C105.869,304.981,87.929,322.921,87.929,345.051z">
+                                        </path>
+                                    </g>
+                                </svg>
+                            </div>
+                            <h5 class="card-title">Lawn Care</h5>
+                            <p class="card-text">
+                                Grass cutting, edging, and regular lawn maintenance for a clean and
+                                well-kept compound.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card h-100 border-0">
+                        <div class="card-body">
+                            <div class="card-img-top mb-3" alt="Card image">
+                                <svg width="64px" height="64px" viewBox="0 0 120 120" id="svg4254" version="1.1"
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#"
+                                    xmlns:dc="http://purl.org/dc/elements/1.1/"
+                                    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+                                    xmlns:svg="http://www.w3.org/2000/svg" fill="#000000">
+                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                    <g id="SVGRepo_iconCarrier">
+                                        <defs id="defs4256"></defs>
+                                        <path
+                                            d="M 112.61329,59.999923 A 52.613281,52.613197 0 0 1 60.000007,112.61312 52.613281,52.613197 0 0 1 7.3867254,59.999923 52.613281,52.613197 0 0 1 60.000007,7.3867255 52.613281,52.613197 0 0 1 112.61329,59.999923 Z"
+                                            id="circle15954"
+                                            style="opacity:1;fill:#80deea;fill-opacity:1;stroke:none;stroke-width:6.9000001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1">
+                                        </path>
+                                        <path
+                                            d="m 58.207066,45.287805 -6.42696,27.651963 -0.897231,-7.473391 -1.643802,5.530177 -0.896749,-20.327768 c -1.622229,7.358237 -0.125938,15.340177 -9.117687,21.224515 L 33.507924,54.411733 c 0,0 -2.917665,14.738738 -4.238742,12.450576 -3.353957,-5.809226 -14.723698,-8.736903 -14.723698,-8.736903 0,0 6.679497,4.166239 4.084157,13.852184 -0.377859,1.410171 -5.495223,-9.482849 -5.495223,-9.482849 0,0 -2.478125,14.747291 -2.88088,14.436506 7.24298,21.310179 27.2391,35.652933 49.746541,35.682043 26.567887,-0.0229 48.949901,-19.849428 52.178011,-46.220446 -3.84857,-3.15364 -3.43042,-7.526335 -4.79555,-11.38953 l -2.24212,16.740292 -4.18494,-16.7405 0.59795,16.441567 c -2.930477,-1.53281 -3.241313,-3.814068 -3.437811,-6.128016 L 96.620548,73.08898 C 91.632747,66.45622 92.641677,58.966803 93.033554,51.565533 L 89.147145,72.341928 87.652557,67.70799 83.318026,76.825663 C 78.52624,67.108526 79.059004,58.456298 77.937028,49.473122 l -2.690245,24.512605 -4.484224,-4.035615 c 2.03842,5.785963 -1.917406,6.776567 -3.437806,9.715487 l 0.448627,-24.213663 -5.231785,20.47698 -2.541033,-6.426949 -1.643776,5.97883 C 55.686464,64.834146 57.522143,55.188841 58.207066,45.287805 Z"
+                                            id="path15956"
+                                            style="fill:#009688;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1">
+                                        </path>
+                                        <path
+                                            d="m 61.793095,45.287805 6.426959,27.651963 0.89723,-7.473391 1.643802,5.530177 0.896749,-20.327768 c 1.622228,7.358237 0.125939,15.340177 9.117686,21.224515 l 5.71671,-17.481568 c 0,0 2.91768,14.738738 4.238742,12.450576 3.353974,-5.809226 14.723707,-8.736903 14.723707,-8.736903 0,0 -6.679494,4.166239 -4.08417,13.852184 0.37786,1.410171 5.49523,-9.482849 5.49523,-9.482849 0,0 2.47812,14.747291 2.88088,14.436506 C 102.50365,98.241426 82.507521,112.58418 60.000079,112.61329 33.432193,112.59044 11.050186,92.763862 7.8220738,66.392844 11.67064,63.239204 11.252495,58.866509 12.617617,55.003314 l 2.242125,16.740292 4.184936,-16.7405 -0.597942,16.441567 c 2.930473,-1.53281 3.241309,-3.814068 3.437806,-6.128016 l 1.495072,7.772323 c 4.987801,-6.63276 3.97887,-14.122177 3.586993,-21.523447 l 3.88641,20.776395 1.494587,-4.633938 4.334529,9.117673 c 4.791787,-9.717137 4.259022,-18.369365 5.380998,-27.352541 l 2.690246,24.512605 4.484225,-4.035615 c -2.038421,5.785963 1.917404,6.776567 3.437806,9.715487 l -0.448629,-24.213663 5.231786,20.47698 2.541032,-6.426949 1.643776,5.97883 c 2.670322,-10.646651 0.834643,-20.291956 0.149722,-30.192992 z"
+                                            id="path15958"
+                                            style="fill:#00695c;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1">
+                                        </path>
+                                    </g>
+                                </svg>
+                            </div>
+                            <h5 class="card-title">Weed Control</h5>
+                            <p class="card-text">
+                                Removal and control of weeds on lawns, gardens and paved areas to
+                                protect your plants and keep your space neat.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-5">
+                    <a href="{% url 'services' %}" class="btn">
+                        All services
+                        <i class="fa-solid fa-angles-right fa-fade"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="why-us bg-white">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="fw-bold text-black">Why work with Stanintegratedservices?</h2>
+            </div>
+            <div class="row">
+                <div class="col-12 col-lg-6">
+                    <div class="why-content d-flex flex-column gap-3 mt-5">
+                        <div class="item d-flex align-items-center gap-3">
+                            <div class="item-icon">
+                                <svg width="50px" height="50px" viewBox="0 0 1024 1024" class="icon" version="1.1"
+                                    xmlns="http://www.w3.org/2000/svg" fill="#000000">
+                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                    <g id="SVGRepo_iconCarrier">
+                                        <path
+                                            d="M512 469.333333m-426.666667 0a426.666667 426.666667 0 1 0 853.333334 0 426.666667 426.666667 0 1 0-853.333334 0Z"
+                                            fill="#FFF59D"></path>
+                                        <path
+                                            d="M789.333333 469.333333c0-164.266667-140.8-294.4-309.333333-275.2-128 14.933333-230.4 117.333333-243.2 245.333334-10.666667 98.133333 29.866667 185.6 98.133333 241.066666 29.866667 25.6 49.066667 61.866667 49.066667 102.4v6.4h256v-2.133333c0-38.4 17.066667-76.8 46.933333-102.4 61.866667-51.2 102.4-128 102.4-215.466667z"
+                                            fill="#FBC02D"></path>
+                                        <path
+                                            d="M652.8 430.933333l-64-42.666666c-6.4-4.266667-17.066667-4.266667-23.466667 0L512 422.4l-51.2-34.133333c-6.4-4.266667-17.066667-4.266667-23.466667 0l-64 42.666666c-4.266667 4.266667-8.533333 8.533333-8.533333 14.933334s0 12.8 4.266667 17.066666l81.066666 100.266667V789.333333h42.666667V554.666667c0-4.266667-2.133333-8.533333-4.266667-12.8l-70.4-87.466667 32-21.333333 51.2 34.133333c6.4 4.266667 17.066667 4.266667 23.466667 0l51.2-34.133333 32 21.333333-70.4 87.466667c-2.133333 4.266667-4.266667 8.533333-4.266667 12.8v234.666666h42.666667V563.2l81.066667-100.266667c4.266667-4.266667 6.4-10.666667 4.266666-17.066666s-4.266667-12.8-8.533333-14.933334z"
+                                            fill="#FFF59D"></path>
+                                        <path d="M512 938.666667m-64 0a64 64 0 1 0 128 0 64 64 0 1 0-128 0Z"
+                                            fill="#5C6BC0">
+                                        </path>
+                                        <path
+                                            d="M554.666667 960h-85.333334c-46.933333 0-85.333333-38.4-85.333333-85.333333v-106.666667h256v106.666667c0 46.933333-38.4 85.333333-85.333333 85.333333z"
+                                            fill="#9FA8DA"></path>
+                                        <path
+                                            d="M640 874.666667l-247.466667 34.133333c6.4 14.933333 19.2 29.866667 34.133334 38.4l200.533333-27.733333c8.533333-12.8 12.8-27.733333 12.8-44.8zM384 825.6v42.666667L640 832v-42.666667z"
+                                            fill="#5C6BC0"></path>
+                                    </g>
+                                </svg>
+                            </div>
+                            <span>Same day, next day and weekend call outs available.</span>
+                        </div>
+                        <div class="item d-flex align-items-center gap-3">
+                            <div class="item-icon">
+                                <svg width="50px" height="50px" viewBox="0 0 1024 1024" class="icon" version="1.1"
+                                    xmlns="http://www.w3.org/2000/svg" fill="#000000">
+                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                    <g id="SVGRepo_iconCarrier">
+                                        <path
+                                            d="M512 469.333333m-426.666667 0a426.666667 426.666667 0 1 0 853.333334 0 426.666667 426.666667 0 1 0-853.333334 0Z"
+                                            fill="#FFF59D"></path>
+                                        <path
+                                            d="M789.333333 469.333333c0-164.266667-140.8-294.4-309.333333-275.2-128 14.933333-230.4 117.333333-243.2 245.333334-10.666667 98.133333 29.866667 185.6 98.133333 241.066666 29.866667 25.6 49.066667 61.866667 49.066667 102.4v6.4h256v-2.133333c0-38.4 17.066667-76.8 46.933333-102.4 61.866667-51.2 102.4-128 102.4-215.466667z"
+                                            fill="#FBC02D"></path>
+                                        <path
+                                            d="M652.8 430.933333l-64-42.666666c-6.4-4.266667-17.066667-4.266667-23.466667 0L512 422.4l-51.2-34.133333c-6.4-4.266667-17.066667-4.266667-23.466667 0l-64 42.666666c-4.266667 4.266667-8.533333 8.533333-8.533333 14.933334s0 12.8 4.266667 17.066666l81.066666 100.266667V789.333333h42.666667V554.666667c0-4.266667-2.133333-8.533333-4.266667-12.8l-70.4-87.466667 32-21.333333 51.2 34.133333c6.4 4.266667 17.066667 4.266667 23.466667 0l51.2-34.133333 32 21.333333-70.4 87.466667c-2.133333 4.266667-4.266667 8.533333-4.266667 12.8v234.666666h42.666667V563.2l81.066667-100.266667c4.266667-4.266667 6.4-10.666667 4.266666-17.066666s-4.266667-12.8-8.533333-14.933334z"
+                                            fill="#FFF59D"></path>
+                                        <path d="M512 938.666667m-64 0a64 64 0 1 0 128 0 64 64 0 1 0-128 0Z"
+                                            fill="#5C6BC0">
+                                        </path>
+                                        <path
+                                            d="M554.666667 960h-85.333334c-46.933333 0-85.333333-38.4-85.333333-85.333333v-106.666667h256v106.666667c0 46.933333-38.4 85.333333-85.333333 85.333333z"
+                                            fill="#9FA8DA"></path>
+                                        <path
+                                            d="M640 874.666667l-247.466667 34.133333c6.4 14.933333 19.2 29.866667 34.133334 38.4l200.533333-27.733333c8.533333-12.8 12.8-27.733333 12.8-44.8zM384 825.6v42.666667L640 832v-42.666667z"
+                                            fill="#5C6BC0"></path>
+                                    </g>
+                                </svg>
+                            </div>
+                            <span>Availability usually within the hour</span>
+                        </div>
+                        <div class="item d-flex align-items-center gap-3">
+                            <div class="item-icon">
+                                <svg width="50px" height="50px" viewBox="0 0 1024 1024" class="icon" version="1.1"
+                                    xmlns="http://www.w3.org/2000/svg" fill="#000000">
+                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                    <g id="SVGRepo_iconCarrier">
+                                        <path
+                                            d="M512 469.333333m-426.666667 0a426.666667 426.666667 0 1 0 853.333334 0 426.666667 426.666667 0 1 0-853.333334 0Z"
+                                            fill="#FFF59D"></path>
+                                        <path
+                                            d="M789.333333 469.333333c0-164.266667-140.8-294.4-309.333333-275.2-128 14.933333-230.4 117.333333-243.2 245.333334-10.666667 98.133333 29.866667 185.6 98.133333 241.066666 29.866667 25.6 49.066667 61.866667 49.066667 102.4v6.4h256v-2.133333c0-38.4 17.066667-76.8 46.933333-102.4 61.866667-51.2 102.4-128 102.4-215.466667z"
+                                            fill="#FBC02D"></path>
+                                        <path
+                                            d="M652.8 430.933333l-64-42.666666c-6.4-4.266667-17.066667-4.266667-23.466667 0L512 422.4l-51.2-34.133333c-6.4-4.266667-17.066667-4.266667-23.466667 0l-64 42.666666c-4.266667 4.266667-8.533333 8.533333-8.533333 14.933334s0 12.8 4.266667 17.066666l81.066666 100.266667V789.333333h42.666667V554.666667c0-4.266667-2.133333-8.533333-4.266667-12.8l-70.4-87.466667 32-21.333333 51.2 34.133333c6.4 4.266667 17.066667 4.266667 23.466667 0l51.2-34.133333 32 21.333333-70.4 87.466667c-2.133333 4.266667-4.266667 8.533333-4.266667 12.8v234.666666h42.666667V563.2l81.066667-100.266667c4.266667-4.266667 6.4-10.666667 4.266666-17.066666s-4.266667-12.8-8.533333-14.933334z"
+                                            fill="#FFF59D"></path>
+                                        <path d="M512 938.666667m-64 0a64 64 0 1 0 128 0 64 64 0 1 0-128 0Z"
+                                            fill="#5C6BC0">
+                                        </path>
+                                        <path
+                                            d="M554.666667 960h-85.333334c-46.933333 0-85.333333-38.4-85.333333-85.333333v-106.666667h256v106.666667c0 46.933333-38.4 85.333333-85.333333 85.333333z"
+                                            fill="#9FA8DA"></path>
+                                        <path
+                                            d="M640 874.666667l-247.466667 34.133333c6.4 14.933333 19.2 29.866667 34.133334 38.4l200.533333-27.733333c8.533333-12.8 12.8-27.733333 12.8-44.8zM384 825.6v42.666667L640 832v-42.666667z"
+                                            fill="#5C6BC0"></path>
+                                    </g>
+                                </svg>
+                            </div>
+                            <span>Detailed reports received within 24 hours.</span>
+                        </div>
+                        <div class="item d-flex align-items-center gap-3">
+                            <div class="item-icon">
+                                <svg width="50px" height="50px" viewBox="0 0 1024 1024" class="icon" version="1.1"
+                                    xmlns="http://www.w3.org/2000/svg" fill="#000000">
+                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                    <g id="SVGRepo_iconCarrier">
+                                        <path
+                                            d="M512 469.333333m-426.666667 0a426.666667 426.666667 0 1 0 853.333334 0 426.666667 426.666667 0 1 0-853.333334 0Z"
+                                            fill="#FFF59D"></path>
+                                        <path
+                                            d="M789.333333 469.333333c0-164.266667-140.8-294.4-309.333333-275.2-128 14.933333-230.4 117.333333-243.2 245.333334-10.666667 98.133333 29.866667 185.6 98.133333 241.066666 29.866667 25.6 49.066667 61.866667 49.066667 102.4v6.4h256v-2.133333c0-38.4 17.066667-76.8 46.933333-102.4 61.866667-51.2 102.4-128 102.4-215.466667z"
+                                            fill="#FBC02D"></path>
+                                        <path
+                                            d="M652.8 430.933333l-64-42.666666c-6.4-4.266667-17.066667-4.266667-23.466667 0L512 422.4l-51.2-34.133333c-6.4-4.266667-17.066667-4.266667-23.466667 0l-64 42.666666c-4.266667 4.266667-8.533333 8.533333-8.533333 14.933334s0 12.8 4.266667 17.066666l81.066666 100.266667V789.333333h42.666667V554.666667c0-4.266667-2.133333-8.533333-4.266667-12.8l-70.4-87.466667 32-21.333333 51.2 34.133333c6.4 4.266667 17.066667 4.266667 23.466667 0l51.2-34.133333 32 21.333333-70.4 87.466667c-2.133333 4.266667-4.266667 8.533333-4.266667 12.8v234.666666h42.666667V563.2l81.066667-100.266667c4.266667-4.266667 6.4-10.666667 4.266666-17.066666s-4.266667-12.8-8.533333-14.933334z"
+                                            fill="#FFF59D"></path>
+                                        <path d="M512 938.666667m-64 0a64 64 0 1 0 128 0 64 64 0 1 0-128 0Z"
+                                            fill="#5C6BC0">
+                                        </path>
+                                        <path
+                                            d="M554.666667 960h-85.333334c-46.933333 0-85.333333-38.4-85.333333-85.333333v-106.666667h256v106.666667c0 46.933333-38.4 85.333333-85.333333 85.333333z"
+                                            fill="#9FA8DA"></path>
+                                        <path
+                                            d="M640 874.666667l-247.466667 34.133333c6.4 14.933333 19.2 29.866667 34.133334 38.4l200.533333-27.733333c8.533333-12.8 12.8-27.733333 12.8-44.8zM384 825.6v42.666667L640 832v-42.666667z"
+                                            fill="#5C6BC0"></path>
+                                    </g>
+                                </svg>
+                            </div>
+                            <span>Free of charge estimates.</span>
+                        </div>
+                        <div class="item d-flex align-items-center gap-3">
+                            <div class="item-icon">
+                                <svg width="50px" height="50px" viewBox="0 0 1024 1024" class="icon" version="1.1"
+                                    xmlns="http://www.w3.org/2000/svg" fill="#000000">
+                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                    <g id="SVGRepo_iconCarrier">
+                                        <path
+                                            d="M512 469.333333m-426.666667 0a426.666667 426.666667 0 1 0 853.333334 0 426.666667 426.666667 0 1 0-853.333334 0Z"
+                                            fill="#FFF59D"></path>
+                                        <path
+                                            d="M789.333333 469.333333c0-164.266667-140.8-294.4-309.333333-275.2-128 14.933333-230.4 117.333333-243.2 245.333334-10.666667 98.133333 29.866667 185.6 98.133333 241.066666 29.866667 25.6 49.066667 61.866667 49.066667 102.4v6.4h256v-2.133333c0-38.4 17.066667-76.8 46.933333-102.4 61.866667-51.2 102.4-128 102.4-215.466667z"
+                                            fill="#FBC02D"></path>
+                                        <path
+                                            d="M652.8 430.933333l-64-42.666666c-6.4-4.266667-17.066667-4.266667-23.466667 0L512 422.4l-51.2-34.133333c-6.4-4.266667-17.066667-4.266667-23.466667 0l-64 42.666666c-4.266667 4.266667-8.533333 8.533333-8.533333 14.933334s0 12.8 4.266667 17.066666l81.066666 100.266667V789.333333h42.666667V554.666667c0-4.266667-2.133333-8.533333-4.266667-12.8l-70.4-87.466667 32-21.333333 51.2 34.133333c6.4 4.266667 17.066667 4.266667 23.466667 0l51.2-34.133333 32 21.333333-70.4 87.466667c-2.133333 4.266667-4.266667 8.533333-4.266667 12.8v234.666666h42.666667V563.2l81.066667-100.266667c4.266667-4.266667 6.4-10.666667 4.266666-17.066666s-4.266667-12.8-8.533333-14.933334z"
+                                            fill="#FFF59D"></path>
+                                        <path d="M512 938.666667m-64 0a64 64 0 1 0 128 0 64 64 0 1 0-128 0Z"
+                                            fill="#5C6BC0">
+                                        </path>
+                                        <path
+                                            d="M554.666667 960h-85.333334c-46.933333 0-85.333333-38.4-85.333333-85.333333v-106.666667h256v106.666667c0 46.933333-38.4 85.333333-85.333333 85.333333z"
+                                            fill="#9FA8DA"></path>
+                                        <path
+                                            d="M640 874.666667l-247.466667 34.133333c6.4 14.933333 19.2 29.866667 34.133334 38.4l200.533333-27.733333c8.533333-12.8 12.8-27.733333 12.8-44.8zM384 825.6v42.666667L640 832v-42.666667z"
+                                            fill="#5C6BC0"></path>
+                                    </g>
+                                </svg>
+                            </div>
+                            <span>Contractor availability 7 days per week.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6 d-none d-lg-block why-image-container">
+                    <img class="why-image" src="{% static 'stanintegratedservices_app/img/stan-hero-1.avif' %}" alt="">
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="py-5 bg-light faq">
+        <div class="container">
+            <h2 class="fw-bold">Frequently Asked Questions</h2>
+
+        </div>
+    </section>
+    <section class="py-5 pre-footer">
+        <div class="container">
+            <h2 class="fw-bold">Get in touch</h2>
+            <p>If you have a property that could benefit from our maintenance services, get in touch with the experts at
+                Stanintegratedservices today.</p>
+            <a href="#">Get in touch</a>
+        </div>
+    </section>
+
+    <section class="py-5 bg-light">
+        <div class="container">
+
+        </div>
+    </section>
+</main>
+{% endblock %}

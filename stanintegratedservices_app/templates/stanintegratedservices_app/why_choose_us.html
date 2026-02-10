@@ -1,0 +1,243 @@
+{% extends 'stanintegratedservices_app/base.html' %}
+{% load static %}
+{% block title %}
+<title>Why Choose Us | Stan Integrated Services</title>
+{% endblock %}
+{% block content %}
+
+<style>
+    .why-header {
+        background-color: #03134f;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 2rem;
+    }
+
+    .why-header h1 {
+        color: wheat;
+        font-weight: 800;
+        letter-spacing: 0.4rem;
+        font-size: 40px;
+    }
+
+    .why-section {
+        padding: 2rem 0;
+    }
+
+    .why-item {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 2rem;
+    }
+
+    .why-item h2 {
+        color: #03134f;
+        font-weight: 600;
+        margin-bottom: 1rem;
+    }
+
+    .why-item p {
+        font-size: 17px;
+        color: #4e4e4e;
+        font-style: italic;
+        line-height: 1.6rem;
+    }
+
+    .why-img {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .why-img img {
+        width: 365px;
+        height: 365px;
+        border-radius: 1rem;
+        object-fit: cover;
+    }
+
+    .pre-footer {
+        background: linear-gradient(180deg, #03134f 90%, #fff 10%);
+        margin-top: 2rem;
+        padding: 2rem 0 0;
+    }
+
+    .pre-footer .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        color: wheat;
+    }
+
+    .pre-footer h2 {
+        font-size: 30px;
+    }
+
+    .pre-footer p {
+        text-align: center;
+        font-weight: 500;
+        width: 100%;
+    }
+
+    .pre-footer a {
+        background: linear-gradient(to top right, #fff, #4c62b3);
+        border: 2px solid #ffffff;
+        color: #000000;
+        font-weight: 600;
+        text-decoration: none;
+        border-radius: 2rem;
+        padding: 0.5rem 1rem;
+        transition: 0.8s ease;
+    }
+
+    @media (min-width: 1024px) {
+
+        .service-container .row {
+            padding: 2rem 5rem;
+        }
+
+        .service-img img {
+            width: 440px;
+            height: 440px;
+        }
+
+        .services-header h1 {
+            letter-spacing: 1rem;
+            font-size: 55px;
+        }
+
+        .service-item {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+        }
+
+        .service-item p {
+            text-align: left;
+            padding: 0;
+        }
+
+        .service-item a:hover {
+            border: 1.5px solid #03134f;
+            background: transparent;
+            color: #03134f;
+        }
+
+        .service-item a {
+            width: auto;
+            border: 1.5px solid #03134f;
+            background: #03134f;
+            color: #fff;
+        }
+
+        .pre-footer h2 {
+            font-size: 35px;
+        }
+
+        .pre-footer {
+            background: linear-gradient(36deg, #03134f 78%, #fff 22%);
+            padding: 2rem 0;
+
+        }
+
+        .pre-footer p {
+            width: 50%;
+        }
+    }
+</style>
+
+<main class="mb-5">
+    <section class="why-us">
+        <div class="container">
+            <div class="why-header">
+                <h1>Why Choose Us</h1>
+            </div>
+
+            <div class="why-section">
+                <div class="row align-items-center bg-light">
+                    <div class="col-12 col-lg-6 why-item">
+                        <h2>Experienced & Skilled Team</h2>
+                        <p>
+                            Our team consists of trained professionals with hands-on experience across cleaning,
+                            painting, gardening, and property maintenance services. We approach every job with care,
+                            precision, and professionalism.
+                        </p>
+                    </div>
+                    <div class="col-12 col-lg-6 why-img">
+                        <img src="{% static 'stanintegratedservices_app/img/team.jpg' %}" alt="Experienced Team">
+                    </div>
+                </div>
+
+                <div class="row align-items-center bg-white">
+                    <div class="col-12 col-lg-6 why-img">
+                        <img src="{% static 'stanintegratedservices_app/img/quality.jpg' %}" alt="Quality Work">
+                    </div>
+                    <div class="col-12 col-lg-6 why-item">
+                        <h2>Quality Workmanship</h2>
+                        <p>
+                            We focus on neat execution, durable results, and attention to detail. From surface
+                            preparation to final clean-up, quality is maintained at every stage of our service.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row align-items-center bg-light">
+                    <div class="col-12 col-lg-6 why-item">
+                        <h2>Reliable & On-Time Service</h2>
+                        <p>
+                            We respect your time and property. Our team arrives as scheduled and completes tasks
+                            efficiently without compromising on quality.
+                        </p>
+                    </div>
+                    <div class="col-12 col-lg-6 why-img">
+                        <img src="{% static 'stanintegratedservices_app/img/reliable.jpg' %}" alt="Reliable Service">
+                    </div>
+                </div>
+
+                <div class="row align-items-center bg-white">
+                    <div class="col-12 col-lg-6 why-img">
+                        <img src="{% static 'stanintegratedservices_app/img/pricing.jpg' %}" alt="Affordable Pricing">
+                    </div>
+                    <div class="col-12 col-lg-6 why-item">
+                        <h2>Affordable & Transparent Pricing</h2>
+                        <p>
+                            We offer fair pricing with no hidden charges. Our clients receive clear quotes and great
+                            value for professional services.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row align-items-center bg-light">
+                    <div class="col-12 col-lg-6 why-item">
+                        <h2>Customer Satisfaction First</h2>
+                        <p>
+                            Your satisfaction matters to us. We listen to your needs, tailor our services accordingly,
+                            and ensure you’re happy with the final result.
+                        </p>
+                    </div>
+                    <div class="col-12 col-lg-6 why-img">
+                        <img src="{% static 'stanintegratedservices_app/img/satisfaction.jpg' %}"
+                            alt="Customer Satisfaction">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pre-footer">
+        <div class="container">
+            <h2 class="fw-bold">Ready to work with us?</h2>
+            <p>
+                Choose Stan Integrated Services for reliable, professional, and affordable property maintenance
+                solutions.
+            </p>
+            <a href="{% url 'contact' %}">Get in touch</a>
+        </div>
+    </section>
+</main>
+
+{% endblock %}

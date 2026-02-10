@@ -1,0 +1,186 @@
+{% extends 'stanintegratedservices_app/base.html' %}
+{% load static %}
+{% block title %}
+<title>About Us | Stan Integrated Services</title>
+{% endblock %}
+{% block content %}
+
+<style>
+
+    .about-us-header {
+        background-color: #03134f;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 2rem 0;
+    }
+
+    .about-us-header h1 {
+        color: wheat;
+        font-weight: 800;
+        letter-spacing: 0.3rem;
+        font-size: 40px;
+    }
+
+    .about-container {
+        padding: 2rem 1rem 0;
+    }
+
+    .about-container .row {
+        padding: 2rem 1rem 3rem;
+    }
+
+    .about-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .about-logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 3rem;
+    }
+
+    .about-logo img {
+        width: 200px;
+        height: 200px;
+        border-radius: 1rem;
+        object-fit: cover;
+    }
+
+    .about-text h1{
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .pre-footer {
+        background: linear-gradient(180deg, #03134f 90%, #fff 10%);
+        padding: 2rem 0 0;
+    }
+
+    .pre-footer .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        color: wheat;
+    }
+
+    .pre-footer h2 {
+        font-size: 30px;
+    }
+
+    .pre-footer p {
+        text-align: center;
+        font-weight: 500;
+        width: 100%;
+    }
+
+    .pre-footer a {
+        background: linear-gradient(to top right, #fff, #4c62b3);
+        border: 2px solid #ffffff;
+        color: #000000;
+        font-weight: 600;
+        text-decoration: none;
+        border-radius: 2rem;
+        padding: 0.5rem 1rem;
+        transition: 0.8s ease;
+    }
+
+    @media (min-width: 1024px) {
+
+        .about-container .row {
+            padding: 2rem 5rem;
+        }
+
+        .about-text h1 {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .about-text h1 {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .about-logo img {
+            width: 300px;
+            height: 300px;
+        }
+
+        .about-us-header h1 {
+            letter-spacing: 1rem;
+            font-size: 55px;
+        }
+
+        .pre-footer h2 {
+            font-size: 35px;
+        }
+
+        .pre-footer {
+            background: linear-gradient(36deg, #03134f 78%, #fff 22%);
+            padding: 2rem 0;
+            margin-top: 3rem;
+
+        }
+
+        .pre-footer p {
+            width: 50%;
+        }
+    }
+</style>
+
+<main class="mb-5">
+    <section class="about-us-section">
+        <div class="container">
+            <div class="about-us-header">
+                <h1>About Us</h1>
+            </div>
+            <div class="about-container bg-light">
+                <div class="about-us-content">
+                    <div class="row justify-content-center align-items-center">
+                        <div class="col-12 col-lg-6 order-2 order-lg-1 about-text">
+                            <div class="about-1">
+                                <h1>About Stan Integrated Services</h1>
+                                <p>
+                                    Stan Integrated Services is a home and facility improvement company
+                                    focused on giving you a clean, beautiful and comfortable environment.
+                                </p>
+                                <p>
+                                    We provide professional painting and decorating, wallpaper installation,
+                                    general cleaning services, gardening, lawn care and weed control for
+                                    homes, offices, shops and estates.
+                                </p>
+                            </div>
+                            <div class="about-2">
+                                <h1>Our Values</h1>
+                                <ul>
+                                    <li>Neat and professional work</li>
+                                    <li>Honesty and transparency</li>
+                                    <li>Timely delivery</li>
+                                    <li>Affordable and fair pricing</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 order-1 order-lg-2 about-logo">
+                            <img src="{% static 'stanintegratedservices_app/img/sis_logo.jpeg' %}" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+    <section class=" pre-footer">
+        <div class="container">
+            <h2 class="fw-bold">Get in touch</h2>
+            <p>If you have a property that could benefit from our maintenance services, get in touch with the experts at
+                Stanintegratedservices today.</p>
+            <a href="{% url 'contact' %}">Get in touch</a>
+        </div>
+    </section>
+</main>
+{% endblock %}

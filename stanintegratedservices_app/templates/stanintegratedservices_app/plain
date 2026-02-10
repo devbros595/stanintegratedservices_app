@@ -1,0 +1,41 @@
+<div class="contact-content bg-light">
+    <h3>
+        Get In Touch
+    </h3>
+    <p>Reach out to book a service, request a quote or ask any question.</p>
+
+    <div class="row">
+        <div class="col-md-6">
+            <h5>Send us a message</h5>
+            <form method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label class="form-label">Full Name</label>
+                    <input type="text" name="name" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Phone Number</label>
+                    <input type="text" name="phone" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Service Needed</label>
+                    <select name="service" class="form-select">
+                        <option>Painting & Decorating</option>
+                        <option>Wallpaper Installation</option>
+                        <option>General Cleaning</option>
+                        <option>Gardening</option>
+                        <option>Lawn Care</option>
+                        <option>Weed Control</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Message / Details</label>
+                    <textarea name="message" rows="4" class="form-control"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+        </div>
+    </div>
+
+</div>
