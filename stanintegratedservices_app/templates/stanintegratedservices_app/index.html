@@ -11,6 +11,7 @@
         padding: 5rem 1rem;
         position: relative;
         overflow: hidden;
+        display: flex;
     }
 
     .hero-video {
@@ -40,14 +41,10 @@
         align-items: center;
     }
 
-    .hero-overlay-mobile {}
-
-
-
     .hero h1 {
         font-weight: 700;
         text-align: center;
-        font-size: 45px;
+        font-size: 40px;
     }
 
     .service-icon {
@@ -240,20 +237,23 @@
 
 
     @media (min-width: 1024px) {
-        /* .hero h1 {
-            text-align: left;
-            padding: 5rem 0;
-        } */
-
-
+        .hero h1 {
+            margin: 2rem 0 4rem;
+            font-weight: 700;
+            text-align: center;
+            font-size: 45px;
+        }
 
         .hero {
             height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .ctas {
             flex-direction: row;
-            margin-top: 0;
+            margin-top: 5rem;
         }
 
         .hero p {
@@ -324,11 +324,11 @@
             style="background: rgba(0, 0, 0, 0.65);">
         </div>
         <div class="hero-content container">
-            <h1 class="display-2 mb-3">
+            <h1 class="display-2">
                 Property Maintenance &
                 Associated Services in the U.K
             </h1>
-            <p>
+            <p class="d-none d-lg-block">
                 We specialise in property maintenance in London and the south of the UK. Maintaining properties for
                 landlords and homeowners throughout London and the south of the United Kingdom who want property
                 maintenance services and repairs carried out quickly and with minimal fuss.
