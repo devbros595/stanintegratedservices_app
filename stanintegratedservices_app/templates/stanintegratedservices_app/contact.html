@@ -193,13 +193,13 @@
 <main>
     <section class="contact-section">
         <div class="container">
-            <div class="contact-header">
+            <div class="contact-header" data-aos="fade-down" data-aos-delay="500">
                 <h1>Contact Us</h1>
             </div>
             <div class="contact-container">
                 <div class="contact-details-container">
                     <div class="row justify-content-center align-items-center">
-                        <div class="col-12 col-lg-4">
+                        <div class="col-12 col-lg-4" data-aos="fade-down" data-aos-delay="100">
                             <div class="contact-card">
                                 <div class="contact-card-icon">
                                     <a href="mailto:info@stanintegratedservices.co.uk">
@@ -232,7 +232,7 @@
                                 <p>info@stanintegratedservices.co.uk</p>
                             </div>
                         </div>
-                        <div class="col-12 col-lg-4">
+                        <div class="col-12 col-lg-4" data-aos="fade-up" data-aos-delay="300">
                             <div class="contact-card">
                                 <div class="contact-card-icon">
                                     <svg width="64px" height="64px" viewBox="0 0 24 24" fill="none"
@@ -254,7 +254,7 @@
                                 <p>13 Newstead Avenue Ashton under lyne Ol6 8XB</p>
                             </div>
                         </div>
-                        <div class="col-12 col-lg-4">
+                        <div class="col-12 col-lg-4" data-aos="fade-down" data-aos-delay="500">
                             <div class="contact-card">
                                 <a href="tel:07891505882" class="contact-card-icon">
                                     <svg width="64px" height="64px" viewBox="0 0 24 24" fill="none"
@@ -283,10 +283,10 @@
                         </div>
                     </div>
                     <div class="row justify-content-center align-items-center">
-                        <div class="col-12 col-lg-6 contact-img">
+                        <div class="col-12 col-lg-6 contact-img" data-aos="fade-right" data-aos-delay="500">
                             <img src="{% static 'stanintegratedservices_app/img/contact-us.jpg' %}" alt="">
                         </div>
-                        <div class="col-12 col-lg-6 contact-form">
+                        <div class="col-12 col-lg-6 contact-form" data-aos="fade-up" data-aos-delay="400">
                             <h2>We are available to attend to your cleaning needs.</h2>
                             <p>Reach out to book a service, request a quote or ask any question.</p>
                             <div class="contact-form-container">
@@ -333,52 +333,6 @@
             </div>
 
         </div>
-    </section>
-    <section class="message-section">
-        <style>
-            .message-container {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                width: 100%;
-                position: fixed;
-                left: 10rem;
-                top: 15rem;
-                transform: translate(-50%, 50%);
-            }
-
-            .message-content {
-                padding: 10px;
-                background: #f8f9fa;
-                padding: 10px;
-                border-radius: 8px;
-                font-weight: 500;
-                font-size: 14px;
-            }
-
-            @media (min-width: 320px) and (max-width: 1024px) {
-                .message-container {
-                    position: relative;
-                    z-index: 100;
-                    left: 17rem;
-                    top: 10rem;
-                    transform: translate(-50%, 50%);
-                }
-            }
-        </style>
-
-
-        {% if messages %}
-        <div class="message-container">
-            {% for message in messages %}
-            <div class="message-content {% if 'error' in message.tags %}text-danger{% else %}text-success{% endif %}">
-                <i
-                    class="fas {% if 'error' in message.tags %}fa-exclamation-circle text-danger{% else %}fa-check-circle text-success{% endif %} me-2"></i>
-                {{ message }}Hello
-            </div>
-            {% endfor %}
-        </div>
-        {% endif %}
     </section>
 
 </main>

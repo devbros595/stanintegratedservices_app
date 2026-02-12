@@ -14,6 +14,16 @@
         display: flex;
     }
 
+    .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.568);
+        z-index: 2;
+    }
+
+
+
     .hero-video {
         position: absolute;
         top: 0;
@@ -21,20 +31,12 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
-        z-index: -2;
-    }
-
-    .hero::before {
-        content: "";
-        position: fixed;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.568);
-        z-index: -1;
+        z-index: 1;
     }
 
     .hero-content {
         position: relative;
-        z-index: 1;
+        z-index: 3;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -131,14 +133,14 @@
     }
 
     .our-services .container {
-        padding: 3rem;
+        margin-top: 2rem;
+        padding: 1rem 3rem 3rem;
     }
 
     .service-title p {
         font-style: italic;
         background: #03134f;
-        border-radius: 2rem;
-        padding: 0rem 2rem;
+        padding: 2rem;
     }
 
     .our-services a {
@@ -158,7 +160,7 @@
     }
 
     .our-services .card {
-        box-shadow: 0px 0px 10px rgba(3, 19, 79, 0.943);
+        box-shadow: 0px 0px 10px rgba(3, 19, 79, 0.468);
 
     }
 
@@ -193,7 +195,8 @@
     }
 
     .pre-footer {
-        background: linear-gradient(40deg, #03134f 78%, #fff 22%);
+        background: linear-gradient(180deg, #03134f 75%, #fff 25%);
+        padding: 2rem 0 0;
     }
 
     .pre-footer .container {
@@ -201,17 +204,18 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 10px;
-        color: #fff;
+        gap: 15px;
+        color: wheat;
     }
 
     .pre-footer h2 {
-        font-size: 35px;
+        font-size: 30px;
     }
 
     .pre-footer p {
         text-align: center;
         font-weight: 500;
+        width: 100%;
     }
 
     .pre-footer a {
@@ -224,15 +228,6 @@
         padding: 0.5rem 1rem;
         transition: 0.8s ease;
     }
-
-    .pre-footer a:hover {
-        background: linear-gradient(to top left, #6171ad, #fff);
-        border: 2px solid #ffffff;
-    }
-
-
-
-
 
 
 
@@ -282,7 +277,11 @@
 
         .our-services {
             background: linear-gradient(300deg, #03134f 80%, #fff 20%);
+        }
 
+        .our-services .container {
+            margin-top: 0;
+            padding: 3rem;
         }
 
         .service-title p {
@@ -294,8 +293,19 @@
             font-size: 14px;
         }
 
+        .pre-footer h2 {
+            font-size: 35px;
+        }
+
+        .pre-footer {
+            background: linear-gradient(39deg, #03134f 78%, #fff 22%);
+            padding: 2rem 0;
+            margin: 2rem 0;
+
+        }
+
         .pre-footer p {
-            width: 450px;
+            width: 50%;
         }
 
     }
@@ -307,23 +317,32 @@
 
         .hero {
             background: url("/static/stanintegratedservices_app/img/stan-hero-1.avif") center / cover no-repeat;
+            z-index: 1;
         }
 
         .hero::before {
-            position: absolute;
+            display: none;
+        }
+
+        .hero-overlay-mobile {
+            z-index: 2;
+        }
+
+        .service-title {
+            margin-top: 2rem;
         }
     }
 </style>
-<main>
+<main class="bg-white">
     <section class="hero">
-        <video autoplay muted loop playsinline class="hero-video">
+        <video autoplay muted loop playsinline class="hero-video" data-aos="zoom-out" data-aos-delay="500">
             <source src="{% static 'stanintegratedservices_app/videos/Cleaning_Man.mp4' %}" type="video/mp4">
             Your browser does not support the video tag.
         </video>
         <div class="hero-overlay-mobile d-block d-lg-none position-absolute top-0 start-0 w-100 h-100"
-            style="background: rgba(0, 0, 0, 0.65);">
+            style="background: rgba(0, 0, 0, 0.511);">
         </div>
-        <div class="hero-content container">
+        <div class="hero-content container" data-aos="fade-right" data-aos-delay="1000">
             <h1 class="display-2">
                 Property Maintenance &
                 Associated Services in the U.K
@@ -343,11 +362,10 @@
             </div>
         </div>
     </section>
-
     <section class="bg-light about-us">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-12 col-lg-4">
+                <div class="col-12 col-lg-4" data-aos="fade-up" data-aos-delay="500">
                     <div class="about-text">
                         <h4>Welcome to the</h4>
                         <h2>Best Cleaning
@@ -369,8 +387,8 @@
                             </p>
                     </div>
                 </div>
-                <div class="col-12 col-lg-6 perks">
-                    <div class="card-container ">
+                <div class="col-12 col-lg-6 perks" data-aos="fade-down" data-aos-delay="800">
+                    <div class="card-container">
                         <div class="card border-0 shadow-lg card-margin">
                             <div class="card-body">
                                 <div class="card-img-top mb-3" alt="Card image">
@@ -588,9 +606,9 @@
         </div>
     </section>
 
-    <section class="our-services">
-        <div class="container ">
-            <div class="text-center mb-5 service-title">
+    <section class="our-services" data-aos="fade-up">
+        <div class="container">
+            <div class="text-center mb-5 service-title" data-aos="fade-right" data-aos-delay="300">
                 <h2 class="fw-bold text-white">What We Do</h2>
                 <p class="text-white mb-0">
                     Complete indoor and outdoor services for homes, offices, shops and estates.
@@ -598,7 +616,7 @@
             </div>
 
             <div class="row g-4">
-                <div class="col-md-4">
+                <div class="col-md-4" data-aos="fade-right" data-aos-delay="100">
                     <div class="card h-100 border-0">
                         <div class="card-body">
                             <div class="card-img-top mb-3" alt="Card image">
@@ -650,7 +668,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-4" data-aos="fade-right" data-aos-delay="200">
                     <div class="card h-100 border-0">
                         <div class="card-body">
                             <div class="card-img-top mb-3" alt="Card image">
@@ -753,7 +771,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-4" data-aos="fade-right" data-aos-delay="300">
                     <div class="card h-100 border-0">
                         <div class="card-body">
                             <div class="card-img-top mb-3" alt="Card image">
@@ -813,7 +831,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-4" data-aos="fade-right" data-aos-delay="100">
                     <div class="card h-100 border-0">
                         <div class="card-body">
                             <div class="card-img-top mb-3" alt="Card image">
@@ -889,7 +907,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-4" data-aos="fade-right" data-aos-delay="200">
                     <div class="card h-100 border-0">
                         <div class="card-body">
                             <div class="card-img-top mb-3" alt="Card image">
@@ -992,7 +1010,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-4" data-aos="fade-right" data-aos-delay="300">
                     <div class="card h-100 border-0">
                         <div class="card-body">
                             <div class="card-img-top mb-3" alt="Card image">
@@ -1044,11 +1062,11 @@
 
     <section class="why-us bg-white">
         <div class="container">
-            <div class="text-center">
+            <div class="text-center" data-aos="fade-up">
                 <h2 class="fw-bold text-black">Why work with Stanintegratedservices?</h2>
             </div>
             <div class="row">
-                <div class="col-12 col-lg-6">
+                <div class="col-12 col-lg-6" data-aos="fade-right" data-aos-delay="200">
                     <div class="why-content d-flex flex-column gap-3 mt-5">
                         <div class="item d-flex align-items-center gap-3">
                             <div class="item-icon">
@@ -1202,7 +1220,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-lg-6 d-none d-lg-block why-image-container">
+                <div class="col-12 col-lg-6 d-none d-lg-block why-image-container" data-aos="zoom-in"
+                    data-aos-delay="500">
                     <img class="why-image" src="{% static 'stanintegratedservices_app/img/stan-hero-1.avif' %}" alt="">
                 </div>
             </div>
@@ -1217,18 +1236,12 @@
 
         </div>
     </section>
-    <section class="py-5 pre-footer">
+    <section class="py-5 pre-footer" data-aos="fade-right">
         <div class="container">
             <h2 class="fw-bold">Get in touch</h2>
             <p>If you have a property that could benefit from our maintenance services, get in touch with the experts at
                 Stanintegratedservices today.</p>
             <a href="#">Get in touch</a>
-        </div>
-    </section>
-
-    <section class="py-5 bg-light">
-        <div class="container">
-
         </div>
     </section>
 </main>

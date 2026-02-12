@@ -16,12 +16,22 @@
 
     .why-header h1 {
         color: wheat;
-        font-weight: 800;
+        font-weight: 800 !important;
         letter-spacing: 0.4rem;
         font-size: 40px;
     }
 
     .why-section {
+        padding: 2rem 0rem 0rem;
+    }
+
+    .why-container {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .why-container .row {
         padding: 2rem 0;
     }
 
@@ -35,20 +45,26 @@
     .why-item h2 {
         color: #03134f;
         font-weight: 600;
-        margin-bottom: 1rem;
+        margin-bottom: 1.3rem;
     }
 
     .why-item p {
+        text-align: center;
         font-size: 17px;
         color: #4e4e4e;
         font-style: italic;
-        line-height: 1.6rem;
+        line-height: 1.5rem;
+        margin-bottom: 4rem;
+        padding: 0 2rem;
     }
 
     .why-img {
         display: flex;
         justify-content: center;
         align-items: center;
+        margin-bottom: 2rem;
+        padding-right: 2rem;
+        padding-left: 2rem;
     }
 
     .why-img img {
@@ -96,42 +112,31 @@
 
     @media (min-width: 1024px) {
 
-        .service-container .row {
+        .why-container .row {
             padding: 2rem 5rem;
         }
 
-        .service-img img {
+        .why-img img {
             width: 440px;
             height: 440px;
+            padding-right: 0;
+            padding-left: 0;
         }
 
-        .services-header h1 {
-            letter-spacing: 1rem;
+        .why-header h1 {
+            letter-spacing: 0.5rem;
             font-size: 55px;
         }
 
-        .service-item {
+        .why-item {
             display: flex;
             flex-direction: column;
             align-items: start;
         }
 
-        .service-item p {
+        .why-item p {
             text-align: left;
             padding: 0;
-        }
-
-        .service-item a:hover {
-            border: 1.5px solid #03134f;
-            background: transparent;
-            color: #03134f;
-        }
-
-        .service-item a {
-            width: auto;
-            border: 1.5px solid #03134f;
-            background: #03134f;
-            color: #fff;
         }
 
         .pre-footer h2 {
@@ -153,82 +158,84 @@
 <main class="mb-5">
     <section class="why-us">
         <div class="container">
-            <div class="why-header">
+            <div class="why-header" data-aos="fade-down" data-aos-delay="500">
                 <h1>Why Choose Us</h1>
             </div>
 
             <div class="why-section">
-                <div class="row align-items-center bg-light">
-                    <div class="col-12 col-lg-6 why-item">
-                        <h2>Experienced & Skilled Team</h2>
-                        <p>
-                            Our team consists of trained professionals with hands-on experience across cleaning,
-                            painting, gardening, and property maintenance services. We approach every job with care,
-                            precision, and professionalism.
-                        </p>
+                <div class="why-container">
+                    <div class="row align-items-center bg-light" data-aos="fade-right" data-aos-delay="100">
+                        <div class="col-12 col-lg-6 order-2 order-lg-1 why-item">
+                            <h2>Experienced & Skilled Team</h2>
+                            <p>
+                                Our team consists of trained professionals with hands-on experience across cleaning,
+                                painting, gardening, and property maintenance services. We approach every job with care,
+                                precision, and professionalism.
+                            </p>
+                        </div>
+                        <div class="col-12 col-lg-6 order-1 order-lg-2 why-img">
+                            <img src="{% static 'stanintegratedservices_app/img/hero1.jpg' %}" loading="lazy"
+                                alt="Experienced Team">
+                        </div>
                     </div>
-                    <div class="col-12 col-lg-6 why-img">
-                        <img src="{% static 'stanintegratedservices_app/img/team.jpg' %}" alt="Experienced Team">
+                    <div class="row align-items-center bg-white" data-aos="fade-up" data-aos-delay="200">
+                        <div class="col-12 col-lg-6 order-1 order-lg-1 why-img">
+                            <img src="{% static 'stanintegratedservices_app/img/lawn_care.jpg' %}" loading="lazy"
+                                alt="Quality Work">
+                        </div>
+                        <div class="col-12 col-lg-6 order-2 order-lg-2 why-item">
+                            <h2>Quality Workmanship</h2>
+                            <p>
+                                We focus on neat execution, durable results, and attention to detail. From surface
+                                preparation to final clean-up, quality is maintained at every stage of our service.
+                            </p>
+                        </div>
                     </div>
-                </div>
-
-                <div class="row align-items-center bg-white">
-                    <div class="col-12 col-lg-6 why-img">
-                        <img src="{% static 'stanintegratedservices_app/img/quality.jpg' %}" alt="Quality Work">
+                    <div class="row align-items-center bg-light" data-aos="fade-right" data-aos-delay="300">
+                        <div class="col-12 col-lg-6 order-2 order-lg-1 why-item">
+                            <h2>Reliable & On-Time Service</h2>
+                            <p>
+                                We respect your time and property. Our team arrives as scheduled and completes tasks
+                                efficiently without compromising on quality.
+                            </p>
+                        </div>
+                        <div class="col-12 col-lg-6 order-1 order-lg-2 why-img">
+                            <img src="{% static 'stanintegratedservices_app/img/painting.jpg' %}" loading="lazy"
+                                alt="Reliable Service">
+                        </div>
                     </div>
-                    <div class="col-12 col-lg-6 why-item">
-                        <h2>Quality Workmanship</h2>
-                        <p>
-                            We focus on neat execution, durable results, and attention to detail. From surface
-                            preparation to final clean-up, quality is maintained at every stage of our service.
-                        </p>
+                    <div class="row align-items-center bg-white" data-aos="fade-up" data-aos-delay="400">
+                        <div class="col-12 col-lg-6 order-1 order-lg-1 why-img">
+                            <img src="{% static 'stanintegratedservices_app/img/gardening.jpg' %}" loading="lazy"
+                                alt="Affordable Pricing">
+                        </div>
+                        <div class="col-12 col-lg-6 order-2 order-lg-2 why-item">
+                            <h2>Affordable & Transparent Pricing</h2>
+                            <p>
+                                We offer fair pricing with no hidden charges. Our clients receive clear quotes and great
+                                value for professional services.
+                            </p>
+                        </div>
                     </div>
-                </div>
-
-                <div class="row align-items-center bg-light">
-                    <div class="col-12 col-lg-6 why-item">
-                        <h2>Reliable & On-Time Service</h2>
-                        <p>
-                            We respect your time and property. Our team arrives as scheduled and completes tasks
-                            efficiently without compromising on quality.
-                        </p>
-                    </div>
-                    <div class="col-12 col-lg-6 why-img">
-                        <img src="{% static 'stanintegratedservices_app/img/reliable.jpg' %}" alt="Reliable Service">
-                    </div>
-                </div>
-
-                <div class="row align-items-center bg-white">
-                    <div class="col-12 col-lg-6 why-img">
-                        <img src="{% static 'stanintegratedservices_app/img/pricing.jpg' %}" alt="Affordable Pricing">
-                    </div>
-                    <div class="col-12 col-lg-6 why-item">
-                        <h2>Affordable & Transparent Pricing</h2>
-                        <p>
-                            We offer fair pricing with no hidden charges. Our clients receive clear quotes and great
-                            value for professional services.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="row align-items-center bg-light">
-                    <div class="col-12 col-lg-6 why-item">
-                        <h2>Customer Satisfaction First</h2>
-                        <p>
-                            Your satisfaction matters to us. We listen to your needs, tailor our services accordingly,
-                            and ensure you’re happy with the final result.
-                        </p>
-                    </div>
-                    <div class="col-12 col-lg-6 why-img">
-                        <img src="{% static 'stanintegratedservices_app/img/satisfaction.jpg' %}"
-                            alt="Customer Satisfaction">
+                    <div class="row align-items-center bg-light" data-aos="fade-right" data-aos-delay="500">
+                        <div class="col-12 col-lg-6 order-2 order-lg-1 why-item">
+                            <h2>Customer Satisfaction First</h2>
+                            <p>
+                                Your satisfaction matters to us. We listen to your needs, tailor our services
+                                accordingly,
+                                and ensure you’re happy with the final result.
+                            </p>
+                        </div>
+                        <div class="col-12 col-lg-6 order-1 order-lg-2 why-img">
+                            <img src="{% static 'stanintegratedservices_app/img/wallpaper.jpg' %}" alt="" loading="lazy"
+                                alt="Customer Satisfaction">
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
     </section>
 
-    <section class="pre-footer">
+    <section class="pre-footer" data-aos="fade-right">
         <div class="container">
             <h2 class="fw-bold">Ready to work with us?</h2>
             <p>

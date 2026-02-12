@@ -6,7 +6,6 @@
 {% block content %}
 
 <style>
-
     .about-us-header {
         background-color: #03134f;
         display: flex;
@@ -51,7 +50,7 @@
         object-fit: cover;
     }
 
-    .about-text h1{
+    .about-text h1 {
         text-align: center;
         margin-bottom: 2rem;
     }
@@ -101,6 +100,7 @@
             text-align: center;
             margin-bottom: 2rem;
         }
+
         .about-text h1 {
             text-align: center;
             margin-bottom: 2rem;
@@ -136,13 +136,14 @@
 <main class="mb-5">
     <section class="about-us-section">
         <div class="container">
-            <div class="about-us-header">
+            <div class="about-us-header" data-aos="fade-down" data-aos-delay="500">
                 <h1>About Us</h1>
             </div>
             <div class="about-container bg-light">
                 <div class="about-us-content">
                     <div class="row justify-content-center align-items-center">
-                        <div class="col-12 col-lg-6 order-2 order-lg-1 about-text">
+                        <div class="col-12 col-lg-6 order-2 order-lg-1 about-text" data-aos="fade-right"
+                            data-aos-delay="500">
                             <div class="about-1">
                                 <h1>About Stan Integrated Services</h1>
                                 <p>
@@ -165,7 +166,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-12 col-lg-6 order-1 order-lg-2 about-logo">
+                        <div class="col-12 col-lg-6 order-1 order-lg-2 about-logo" data-aos="zoom-out" data-aos-delay="1000">
                             <img src="{% static 'stanintegratedservices_app/img/sis_logo.jpeg' %}" alt="">
                         </div>
                     </div>
@@ -174,7 +175,7 @@
         </div>
         </div>
     </section>
-    <section class=" pre-footer">
+    <section class=" pre-footer" data-aos="fade-right">
         <div class="container">
             <h2 class="fw-bold">Get in touch</h2>
             <p>If you have a property that could benefit from our maintenance services, get in touch with the experts at
