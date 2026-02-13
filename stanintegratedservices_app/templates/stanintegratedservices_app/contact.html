@@ -18,7 +18,7 @@
         color: wheat;
         font-weight: 800;
         letter-spacing: 0.3rem;
-        font-size: 40px;
+        font-size: clamp(28px, 5vw, 36px);
     }
 
     .contact-container {
@@ -120,11 +120,8 @@
 
     @media (min-width: 1024px) {
 
-        .contact-header {}
-
         .contact-header h1 {
-            letter-spacing: 1rem;
-            font-size: 55px;
+            letter-spacing: 0.3rem;
         }
 
         .contact-details-container>.row:last-child {

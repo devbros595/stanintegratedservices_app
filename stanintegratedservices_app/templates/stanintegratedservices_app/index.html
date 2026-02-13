@@ -12,19 +12,19 @@
         position: relative;
         overflow: hidden;
         display: flex;
+        background: url("/static/stanintegratedservices_app/img/stan-hero-4.avif") center / cover no-repeat;
+        z-index: 1;
     }
 
     .hero::before {
         content: "";
         position: absolute;
         inset: 0;
-        background: rgba(0, 0, 0, 0.568);
-        z-index: 2;
+        background: rgba(0, 0, 0, 0.434);
+        z-index: 3;
     }
 
-
-
-    .hero-video {
+    /* .hero-video {
         position: absolute;
         top: 0;
         left: 0;
@@ -32,7 +32,7 @@
         height: 100%;
         object-fit: cover;
         z-index: 1;
-    }
+    } */
 
     .hero-content {
         position: relative;
@@ -185,14 +185,6 @@
         border-radius: 5rem;
     }
 
-    .faq .container {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 10px;
-        color: #000000;
-    }
 
     .pre-footer {
         background: linear-gradient(180deg, #03134f 75%, #fff 25%);
@@ -293,6 +285,10 @@
             font-size: 14px;
         }
 
+        .faq-section {
+            padding: 2rem 5rem;
+        }
+
         .pre-footer h2 {
             font-size: 35px;
         }
@@ -335,10 +331,10 @@
 </style>
 <main class="bg-white">
     <section class="hero">
-        <video autoplay muted loop playsinline class="hero-video" data-aos="zoom-out" data-aos-delay="500">
+        <!-- <video autoplay muted loop playsinline class="hero-video" data-aos="zoom-out" data-aos-delay="500">
             <source src="{% static 'stanintegratedservices_app/videos/Cleaning_Man.mp4' %}" type="video/mp4">
             Your browser does not support the video tag.
-        </video>
+        </video> -->
         <div class="hero-overlay-mobile d-block d-lg-none position-absolute top-0 start-0 w-100 h-100"
             style="background: rgba(0, 0, 0, 0.511);">
         </div>
@@ -1229,13 +1225,9 @@
         </div>
 
     </section>
+    {% include "stanintegratedservices_app/faq.html" %}
 
-    <section class="py-5 bg-light faq">
-        <div class="container">
-            <h2 class="fw-bold">Frequently Asked Questions</h2>
 
-        </div>
-    </section>
     <section class="py-5 pre-footer" data-aos="fade-right">
         <div class="container">
             <h2 class="fw-bold">Get in touch</h2>

@@ -17,8 +17,8 @@
     .why-header h1 {
         color: wheat;
         font-weight: 800 !important;
-        letter-spacing: 0.4rem;
-        font-size: 40px;
+        letter-spacing: 0.3rem;
+        font-size: clamp(28px, 5vw, 36px);
     }
 
     .why-section {
@@ -39,7 +39,9 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        padding: 2rem;
+        align-items: center;
+        text-align: center;
+        padding: 0 0.5rem;
     }
 
     .why-item h2 {
@@ -63,13 +65,14 @@
         justify-content: center;
         align-items: center;
         margin-bottom: 2rem;
-        padding-right: 2rem;
-        padding-left: 2rem;
+        padding-right: 1rem;
+        padding-left: 1rem;
     }
 
     .why-img img {
-        width: 365px;
-        height: 365px;
+        width: 100%;
+        max-width: 365px;
+        height: auto;
         border-radius: 1rem;
         object-fit: cover;
     }
@@ -123,11 +126,6 @@
             padding-left: 0;
         }
 
-        .why-header h1 {
-            letter-spacing: 0.5rem;
-            font-size: 55px;
-        }
-
         .why-item {
             display: flex;
             flex-direction: column;
@@ -146,7 +144,7 @@
         .pre-footer {
             background: linear-gradient(36deg, #03134f 78%, #fff 22%);
             padding: 2rem 0;
-
+            margin: 2rem 0;
         }
 
         .pre-footer p {
@@ -175,13 +173,13 @@
                         </div>
                         <div class="col-12 col-lg-6 order-1 order-lg-2 why-img">
                             <img src="{% static 'stanintegratedservices_app/img/hero1.jpg' %}" loading="lazy"
-                                alt="Experienced Team">
+                                alt="Experienced Team" class="img-fluid">
                         </div>
                     </div>
                     <div class="row align-items-center bg-white" data-aos="fade-up" data-aos-delay="200">
                         <div class="col-12 col-lg-6 order-1 order-lg-1 why-img">
                             <img src="{% static 'stanintegratedservices_app/img/lawn_care.jpg' %}" loading="lazy"
-                                alt="Quality Work">
+                                alt="Quality Work" class="img-fluid">
                         </div>
                         <div class="col-12 col-lg-6 order-2 order-lg-2 why-item">
                             <h2>Quality Workmanship</h2>
@@ -201,13 +199,13 @@
                         </div>
                         <div class="col-12 col-lg-6 order-1 order-lg-2 why-img">
                             <img src="{% static 'stanintegratedservices_app/img/painting.jpg' %}" loading="lazy"
-                                alt="Reliable Service">
+                                alt="Reliable Service" class="img-fluid">
                         </div>
                     </div>
                     <div class="row align-items-center bg-white" data-aos="fade-up" data-aos-delay="400">
                         <div class="col-12 col-lg-6 order-1 order-lg-1 why-img">
                             <img src="{% static 'stanintegratedservices_app/img/gardening.jpg' %}" loading="lazy"
-                                alt="Affordable Pricing">
+                                alt="Affordable Pricing" class="img-fluid">
                         </div>
                         <div class="col-12 col-lg-6 order-2 order-lg-2 why-item">
                             <h2>Affordable & Transparent Pricing</h2>
@@ -228,7 +226,7 @@
                         </div>
                         <div class="col-12 col-lg-6 order-1 order-lg-2 why-img">
                             <img src="{% static 'stanintegratedservices_app/img/wallpaper.jpg' %}" alt="" loading="lazy"
-                                alt="Customer Satisfaction">
+                                alt="Customer Satisfaction" class="img-fluid">
                         </div>
                     </div>
                 </div>

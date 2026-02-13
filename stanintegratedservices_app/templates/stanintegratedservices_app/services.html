@@ -32,7 +32,7 @@
         color: wheat;
         font-weight: 800 !important;
         letter-spacing: 0.4rem;
-        font-size: 40px;
+        font-size: clamp(28px, 5vw, 36px);
     }
 
     .service-img {
@@ -40,22 +40,26 @@
         justify-content: center;
         align-items: center;
         margin-bottom: 2rem;
-        padding-right: 2rem;
-        padding-left: 2rem;
+        padding-right: 1rem;
+        padding-left: 1rem;
     }
 
     .service-img img {
-        width: 365px;
-        height: 365px;
+        width: 100%;
+        max-width: 365px;
+        height: auto;
         border-radius: 1rem;
         object-fit: cover;
     }
+
 
     .service-item {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        text-align: center;
+        padding: 0 0.5rem;
 
     }
 
@@ -89,10 +93,11 @@
     }
 
     .pre-footer {
-        background: linear-gradient(180deg, #03134f 90%, #fff 10%);
-        margin-top: 2rem;
+        background: linear-gradient(180deg, #03134f 75%, #fff 25%);
         padding: 2rem 0 0;
     }
+
+
 
     .pre-footer .container {
         display: flex;
@@ -139,7 +144,6 @@
 
         .services-header h1 {
             letter-spacing: 1rem;
-            font-size: 55px;
         }
 
         .service-item {
@@ -173,6 +177,7 @@
         .pre-footer {
             background: linear-gradient(36deg, #03134f 78%, #fff 22%);
             padding: 2rem 0;
+            margin: 2rem 0;
 
         }
 
@@ -190,7 +195,8 @@
             </div>
             <div class="services">
                 <div class="service-container">
-                    <div class="row justify-content-center align-items-center bg-light" data-aos="fade-right" data-aos-delay="100">
+                    <div class="row justify-content-center align-items-center bg-light" data-aos="fade-right"
+                        data-aos-delay="100">
                         <div class="col-12 col-lg-6 order-2 order-lg-1 service-item">
                             <h2>General Cleaning</h2>
                             <p>We offer professional cleaning for homes, offices, and commercial spaces, including floor
@@ -200,12 +206,15 @@
                             <a href="#">Contact Us</a>
                         </div>
                         <div class="col-12 col-lg-6 order-1 order-lg-2 service-img">
-                            <img src="{% static 'stanintegratedservices_app/img/hero1.jpg' %}" alt="" loading="lazy">
+                            <img src="{% static 'stanintegratedservices_app/img/hero1.jpg' %}" alt="" loading="lazy"
+                                class="img-fluid">
                         </div>
                     </div>
-                    <div class="row justify-content-center align-items-center bg-white" data-aos="fade-up" data-aos-delay="200">
+                    <div class="row justify-content-center align-items-center bg-white" data-aos="fade-up"
+                        data-aos-delay="200">
                         <div class="col-12 col-lg-6 order-1 order-lg-1  service-img">
-                            <img src="{% static 'stanintegratedservices_app/img/lawn_care.jpg' %}" alt="" loading="lazy">
+                            <img src="{% static 'stanintegratedservices_app/img/lawn_care.jpg' %}" alt="" loading="lazy"
+                                class="img-fluid">
                         </div>
                         <div class="col-12 col-lg-6 order-2 order-lg-2  service-item">
                             <h2>Lawn Care</h2>
@@ -216,7 +225,8 @@
                             <a href="#">Contact Us</a>
                         </div>
                     </div>
-                    <div class="row justify-content-center align-items-center bg-light" data-aos="fade-right" data-aos-delay="300">
+                    <div class="row justify-content-center align-items-center bg-light" data-aos="fade-right"
+                        data-aos-delay="300">
                         <div class="col-12 col-lg-6 order-2 order-lg-1 service-item">
                             <h2>Painting & Decorating</h2>
                             <p>We provide professional painting and decorating services designed to enhance the
@@ -227,12 +237,15 @@
                             <a href="#">Contact Us</a>
                         </div>
                         <div class="col-12 col-lg-6 order-1 order-lg-2 service-img">
-                            <img src="{% static 'stanintegratedservices_app/img/painting.jpg' %}" alt="" loading="lazy">
+                            <img src="{% static 'stanintegratedservices_app/img/painting.jpg' %}" alt="" loading="lazy"
+                                class="img-fluid">
                         </div>
                     </div>
-                    <div class="row justify-content-center align-items-center bg-white" data-aos="fade-up" data-aos-delay="400">
+                    <div class="row justify-content-center align-items-center bg-white" data-aos="fade-up"
+                        data-aos-delay="400">
                         <div class="col-12 col-lg-6 order-1 order-lg-1 service-img">
-                            <img src="{% static 'stanintegratedservices_app/img/gardening.jpg' %}" alt="" loading="lazy">
+                            <img src="{% static 'stanintegratedservices_app/img/gardening.jpg' %}" alt="" loading="lazy"
+                                class="img-fluid">
                         </div>
                         <div class="col-12 col-lg-6 order-2 order-lg-2 service-item">
                             <h2>Gardening</h2>
@@ -242,7 +255,8 @@
                             <a href="#">Contact Us</a>
                         </div>
                     </div>
-                    <div class="row justify-content-center align-items-center bg-light" data-aos="fade-right" data-aos-delay="500">
+                    <div class="row justify-content-center align-items-center bg-light" data-aos="fade-right"
+                        data-aos-delay="500">
                         <div class="col-12 col-lg-6 order-2 order-lg-1 service-item">
                             <h2>Wallpaper Installation</h2>
                             <p>Stan integrated services offer precise and professional wallpaper installation services
@@ -252,13 +266,15 @@
                             <a href="#">Contact Us</a>
                         </div>
                         <div class="col-12 col-lg-6 order-1 order-lg-2 service-img">
-                            <img src="{% static 'stanintegratedservices_app/img/wallpaper.jpg' %}" alt="" loading="lazy">
+                            <img src="{% static 'stanintegratedservices_app/img/wallpaper.jpg' %}" alt="" loading="lazy"
+                                class="img-fluid">
                         </div>
                     </div>
-                    <div class="row justify-content-center align-items-center bg-white" data-aos="fade-up" data-aos-delay="600">
+                    <div class="row justify-content-center align-items-center bg-white" data-aos="fade-up"
+                        data-aos-delay="600">
                         <div class="col-12 col-lg-6 order-1 order-lg-1 service-img">
                             <img src="{% static 'stanintegratedservices_app/img/weed_removal.jpeg' %}"
-                                alt="hand_removing_weed" loading="lazy">
+                                alt="hand_removing_weed" loading="lazy" class="img-fluid">
                         </div>
                         <div class="col-12 col-lg-6 order-2 order-lg-2 service-item">
                             <h2>Weed Control</h2>
@@ -272,7 +288,8 @@
             </div>
         </div>
     </section>
-    <section class=" pre-footer" data-aos="fade-right">
+    {% include "stanintegratedservices_app/faq.html" %}
+    <section class="pre-footer" data-aos="fade-right">
         <div class="container">
             <h2 class="fw-bold">Get in touch</h2>
             <p>If you have a property that could benefit from our maintenance services, get in touch with the experts at

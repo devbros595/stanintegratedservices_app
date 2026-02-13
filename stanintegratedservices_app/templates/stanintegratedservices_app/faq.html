@@ -1,0 +1,169 @@
+<style>
+    .faq-section {
+        padding: 2rem 0;
+    }
+
+    .faq-card {
+        background: white;
+        border: none;
+        border-radius: 10px;
+        margin-bottom: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+        transition: all 0.4s ease-in-out;
+    }
+
+    .faq-card-button {
+        width: 100%;
+        background: white;
+        border: none;
+        padding: 20px;
+        font-size: 16px;
+        font-weight: 600;
+        color: #03134f;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .faq-card-button::after {
+        display: none;
+    }
+
+    .faq-card-button:hover {
+        background: #f4f6fb;
+    }
+
+    .icon {
+        transition: 0.3s;
+    }
+
+    .faq-card-button:not(.collapsed) .icon {
+        transform: rotate(45deg);
+    }
+
+    .faq-card-body {
+        padding: 0 20px 20px 20px;
+        color: #555;
+    }
+
+    @media (min-width: 1024px) {
+        .faq-section {
+            padding: 2rem 5rem;
+        }
+    }
+</style>
+<section class="faq-section bg-light" data-aos="fade-right">
+    <div class="container">
+
+        <!-- Section Title -->
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">Frequently Asked Questions</h2>
+            <p>Everything you need to know about our services</p>
+        </div>
+
+        <div class="accordion faq-accordion" id="faqAccordion">
+
+            <!-- FAQ 1 -->
+            <div class="accordion-item faq-card">
+                <h2 class="accordion-header">
+                    <button class="faq-card-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#faq1">
+
+                        <span>What services do you offer?</span>
+                        <i class="fas fa-plus icon"></i>
+
+                    </button>
+                </h2>
+
+                <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+
+                    <div class="accordion-body faq-card-body">
+
+                        We offer painting and decorating, wallpaper installation,
+                        general cleaning, gardening, lawn care, and weed control
+                        services for residential and commercial properties.
+
+                    </div>
+
+                </div>
+            </div>
+
+
+            <!-- FAQ 2 -->
+            <div class="accordion-item faq-card">
+                <h2 class="accordion-header">
+                    <button class="faq-card-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#faq2">
+
+                        <span>Do you provide free quotes?</span>
+                        <i class="fas fa-plus icon"></i>
+
+                    </button>
+                </h2>
+
+                <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+
+                    <div class="accordion-body faq-card-body">
+
+                        Yes, we provide free quotes based on your project
+                        requirements and service needs.
+
+                    </div>
+
+                </div>
+            </div>
+
+
+            <!-- FAQ 3 -->
+            <div class="accordion-item faq-card">
+                <h2 class="accordion-header">
+                    <button class="faq-card-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#faq3">
+
+                        <span>Do you serve commercial properties?</span>
+                        <i class="fas fa-plus icon"></i>
+
+                    </button>
+                </h2>
+
+                <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+
+                    <div class="accordion-body faq-card-body">
+
+                        Yes, we provide services for homes, offices, and
+                        commercial properties of all sizes.
+
+                    </div>
+
+                </div>
+            </div>
+
+
+            <!-- FAQ 4 -->
+            <div class="accordion-item faq-card">
+                <h2 class="accordion-header">
+                    <button class="faq-card-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#faq4">
+
+                        <span>How can I book a service?</span>
+                        <i class="fas fa-plus icon"></i>
+
+                    </button>
+                </h2>
+
+                <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+
+                    <div class="accordion-body faq-card-body">
+
+                        You can book a service through our contact form,
+                        phone number, or email. We will respond promptly.
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
