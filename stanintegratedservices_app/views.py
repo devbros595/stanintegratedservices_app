@@ -8,6 +8,9 @@ from django.http import JsonResponse
 
 # Create your views here.
 
+def custom_404(request, exception):
+    return render(request, "stanintegratedservices_app/404.html", status=404)
+
 
 def index_view(request):
     return render(request, "stanintegratedservices_app/index.html")
@@ -23,7 +26,6 @@ def services_view(request):
 
 def why_choose_us_view(request):
     return render(request, "stanintegratedservices_app/why_choose_us.html")
-
 
 
 def contact_view(request):

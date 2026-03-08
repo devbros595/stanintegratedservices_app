@@ -1,0 +1,123 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found | Stan Integrated Services</title>
+    <meta name="robots" content="noindex">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <style>
+        * {
+            font-family: Barlow;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #fff;
+            overflow-x: hidden;
+        }
+
+        .header {
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 999;
+        }
+
+        .navbar {
+            background-color: rgb(255, 255, 255);
+            width: 100%;
+            padding: 0.8rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            margin-top: 2rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+        }
+
+        .cta-btn a {
+            background: #03134f;
+            color: #fff;
+            margin-top: 2rem;
+            font-weight: 500;
+            transition: all 0.4s ease-in-out;
+        }
+
+        .cta-btn a:hover {
+            background: #03134f8e;
+            color: #000;
+
+        }
+
+
+        @media (min-width: 1024px) {
+
+            .navbar {
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">
+                <a href="{% url 'index' %}" class="logo-link">
+                    <img src="{% static 'stanintegratedservices_app/img/sis_logo.jpeg' %}" alt="Logo" width="50"
+                        height="50" loading="lazy">
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="text-center" style="margin-top: 150px;">
+        <svg fill="#000000" height="70px" width="70px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 60 60" xml:space="preserve">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+                <g>
+                    <path
+                        d="M9,39h6v8c0,0.552,0.448,1,1,1s1-0.448,1-1v-8h3c0.552,0,1-0.448,1-1s-0.448-1-1-1h-3v-2c0-0.552-0.448-1-1-1s-1,0.448-1,1 v2h-5V27c0-0.552-0.448-1-1-1s-1,0.448-1,1v11C8,38.552,8.448,39,9,39z">
+                    </path>
+                    <path
+                        d="M40,39h6v8c0,0.552,0.448,1,1,1s1-0.448,1-1v-8h3c0.552,0,1-0.448,1-1s-0.448-1-1-1h-3v-2c0-0.552-0.448-1-1-1 s-1,0.448-1,1v2h-5V27c0-0.552-0.448-1-1-1s-1,0.448-1,1v11C39,38.552,39.448,39,40,39z">
+                    </path>
+                    <path
+                        d="M29.5,48c3.584,0,6.5-2.916,6.5-6.5v-9c0-3.584-2.916-6.5-6.5-6.5S23,28.916,23,32.5v9C23,45.084,25.916,48,29.5,48z M25,32.5c0-2.481,2.019-4.5,4.5-4.5s4.5,2.019,4.5,4.5v9c0,2.481-2.019,4.5-4.5,4.5S25,43.981,25,41.5V32.5z">
+                    </path>
+                    <path d="M0,0v14v46h60V14V0H0z M2,2h56v10H2V2z M58,58H2V14h56V58z"></path>
+                    <polygon
+                        points="54.293,3.293 52,5.586 49.707,3.293 48.293,4.707 50.586,7 48.293,9.293 49.707,10.707 52,8.414 54.293,10.707 55.707,9.293 53.414,7 55.707,4.707 ">
+                    </polygon>
+                    <path d="M3,11h39V3H3V11z M5,5h35v4H5V5z"></path>
+                </g>
+            </g>
+        </svg>
+        <h1>Oops! There&#039;s nothing here.</h1>
+        <h5>Sorry, the page you are looking for does not exist.</h5>
+        <div class="cta-btn">
+            <a href="/" class="btn">
+                Go Back Home
+            </a>
+        </div>
+    </main>
+</body>
+
+</html>
