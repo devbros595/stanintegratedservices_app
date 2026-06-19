@@ -1,8 +1,6 @@
 {% extends 'stanintegratedservices_app/base.html' %}
 {% load static %}
-{% block title %}
-<title>Services | Stan Integrated Services</title>
-{% endblock %}
+{% block title %}Services | Stan Integrated Services{% endblock %}
 {% block content %}
 
 <style>
@@ -198,15 +196,17 @@
                     <div class="row justify-content-center align-items-center bg-light" data-aos="fade-right"
                         data-aos-delay="100">
                         <div class="col-12 col-lg-6 order-2 order-lg-1 service-item">
-                            <h2>General Cleaning</h2>
-                            <p>We offer professional cleaning for homes, offices, and commercial spaces, including floor
-                                cleaning, dusting, bathroom and kitchen cleaning, post-construction cleaning, and
-                                routine maintenance. Our team delivers neat, hygienic results using safe cleaning
-                                products and flexible schedules.</p>
+                            <h2>Painting & Decorating</h2>
+                            <p>We provide professional painting and decorating services designed to enhance the
+                                appearance and durability of your space. From careful surface preparation to a smooth,
+                                long-lasting finish, our team delivers neat, reliable results every time. Whether it’s a
+                                home, office, or commercial property, we focus on clean execution, attention to detail,
+                                and timely delivery.</p>
+
                             <a href="#">Contact Us</a>
                         </div>
                         <div class="col-12 col-lg-6 order-1 order-lg-2 service-img">
-                            <img src="{% static 'stanintegratedservices_app/img/hero1.jpg' %}" alt="" loading="lazy"
+                            <img src="{% static 'stanintegratedservices_app/img/painting.jpg' %}" alt="" loading="lazy"
                                 class="img-fluid">
                         </div>
                     </div>
@@ -228,12 +228,11 @@
                     <div class="row justify-content-center align-items-center bg-light" data-aos="fade-right"
                         data-aos-delay="300">
                         <div class="col-12 col-lg-6 order-2 order-lg-1 service-item">
-                            <h2>Painting & Decorating</h2>
-                            <p>We provide professional painting and decorating services designed to enhance the
-                                appearance and durability of your space. From careful surface preparation to a smooth,
-                                long-lasting finish, our team delivers neat, reliable results every time. Whether it’s a
-                                home, office, or commercial property, we focus on clean execution, attention to detail,
-                                and timely delivery.</p>
+                            <h2>General Cleaning</h2>
+                            <p>We offer professional cleaning for homes, offices, and commercial spaces, including floor
+                                cleaning, dusting, bathroom and kitchen cleaning, post-construction cleaning, and
+                                routine maintenance. Our team delivers neat, hygienic results using safe cleaning
+                                products and flexible schedules.</p>
                             <a href="#">Contact Us</a>
                         </div>
                         <div class="col-12 col-lg-6 order-1 order-lg-2 service-img">
@@ -282,6 +281,20 @@
                                 and well maintained. Our approach focuses on removing unwanted growth while protecting
                                 your lawn, plants, and soil.</p>
                             <a href="#">Contact Us</a>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center align-items-center bg-light" data-aos="fade-up"
+                        data-aos-delay="600">
+                        <div class="col-12 col-lg-6 order-1 order-lg-2 service-img">
+                            <img src="{% static 'stanintegratedservices_app/img/air-condition.jpg' %}"
+                                alt="air conditioning installation and maintenance" loading="lazy" class="img-fluid">
+                        </div>
+                        <div class="col-12 col-lg-6 order-2 order-lg-1 service-item">
+                            <h2>Air Conditioning Services</h2>
+                            <p>We deliver expert air conditioning services to ensure your indoor spaces remain comfortable 
+                                year-round. Our solutions cover precision installation, rapid diagnostics, structural system 
+                                repairs, and preventative HVAC maintenance for residential and commercial properties.</p>
+                            <a href="{% url 'contact' %}">Contact Us</a>
                         </div>
                     </div>
                 </div>

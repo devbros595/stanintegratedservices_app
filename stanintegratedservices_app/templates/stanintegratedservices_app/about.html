@@ -1,8 +1,7 @@
 {% extends 'stanintegratedservices_app/base.html' %}
 {% load static %}
-{% block title %}
-<title>About Us | Stan Integrated Services</title>
-{% endblock %}
+{% block title %}About Us | Stan Integrated Services{% endblock %}
+{% block meta_description %}Learn about our mission, vision, and team at Stan Integrated Services.{% endblock %}
 {% block content %}
 
 <style>
@@ -44,8 +43,7 @@
     }
 
     .about-logo img {
-        width: 200px;
-        height: 200px;
+        width: 100%;
         border-radius: 1rem;
         object-fit: cover;
     }
@@ -145,7 +143,7 @@
                                     focused on giving you a clean, beautiful and comfortable environment.
                                 </p>
                                 <p>
-                                    We provide professional painting and decorating, wallpaper installation,
+                                    We provide professional painting and decorating, air conditioning services, wallpaper installation,
                                     general cleaning services, gardening, lawn care and weed control for
                                     homes, offices, shops and estates.
                                 </p>
@@ -162,7 +160,7 @@
                         </div>
                         <div class="col-12 col-lg-6 order-1 order-lg-2 about-logo" data-aos="zoom-out"
                             data-aos-delay="1000">
-                            <img src="{% static 'stanintegratedservices_app/img/sis_logo.jpeg' %}" alt="">
+                            <img src="{% static 'stanintegratedservices_app/img/logo-lg.png' %}" alt="">
                         </div>
                     </div>
                 </div>
@@ -174,7 +172,7 @@
         <div class="container">
             <h2 class="fw-bold">Get in touch</h2>
             <p>If you have a property that could benefit from our maintenance services, get in touch with the experts at
-                Stanintegratedservices today.</p>
+                Stan Integrated Services today.</p>
             <a href="{% url 'contact' %}">Get in touch</a>
         </div>
     </section>
