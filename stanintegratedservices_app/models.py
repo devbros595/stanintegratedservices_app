@@ -3,6 +3,7 @@ from django.db import models
 class ContactMessage(models.Model):
     SERVICE_CHOICES = [
         ('Painting & Decorating', 'Painting & Decorating'),
+        ('Air Condition Services', 'Air Condition Services'),
         ('Wallpaper Installation', 'Wallpaper Installation'),
         ('General Cleaning', 'General Cleaning'),
         ('Gardening', 'Gardening'),

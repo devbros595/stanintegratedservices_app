@@ -22,5 +22,3 @@ class ContactMessageAdmin(admin.ModelAdmin):
     def has_change_permission(self, request, obj=None):
         return False  # prevent editing
 
-    def has_delete_permission(self, request, obj=None):
-        return False  # optional: prevent deletion

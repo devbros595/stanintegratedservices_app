@@ -36,7 +36,7 @@ def contact_view(request):
         service = request.POST.get("service")
         message = request.POST.get("message")
 
-        if not all([name, phone, address, service]):
+        if not all([name, phone, address, service, message]):
             return JsonResponse(
                 {"status": "error", "message": "Please fill in all required fields."},
                 status=400,

@@ -25,7 +25,12 @@ SECRET_KEY = "django-insecure-_jreil%m2p*59u4bay5$a-+xckn&!%f1nhwu#x1%gknd@q7t*t
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = [
+    "localhost",
+    "127.0.0.1",
+    "www.stanintegratedservices.co.uk",
+    "stanintegratedservices.co.uk",
+]
 
 
 # Application definition
@@ -92,7 +97,6 @@ else:
             "NAME": BASE_DIR / "db.sqlite3",
         }
     }
-
 
 
 # Password validation

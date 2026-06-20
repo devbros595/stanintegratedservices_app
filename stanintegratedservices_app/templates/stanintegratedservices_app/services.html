@@ -1,6 +1,7 @@
 {% extends 'stanintegratedservices_app/base.html' %}
 {% load static %}
-{% block title %}Services | Stan Integrated Services{% endblock %}
+{% block title %}Our Services | Stan Integrated Services{% endblock %}
+{% block meta_description %}Explore our full range of property care services, including professional indoor painting, wallpapering, lawn trimming, post-construction cleaning, and HVAC maintenance.{% endblock %}
 {% block content %}
 
 <style>
@@ -188,12 +189,12 @@
 <main class="mb-5">
     <section class="our-services">
         <div class="container">
-            <div class="services-header" data-aos="fade-down" data-aos-delay="500">
+            <div class="services-header" data-aos="fade-down" data-aos-delay="300">
                 <h1>Services</h1>
             </div>
             <div class="services">
                 <div class="service-container">
-                    <div class="row justify-content-center align-items-center bg-light" data-aos="fade-right"
+                    <div class="row justify-content-center align-items-center bg-light" data-aos="fade-up"
                         data-aos-delay="100">
                         <div class="col-12 col-lg-6 order-2 order-lg-1 service-item">
                             <h2>Painting & Decorating</h2>
@@ -213,19 +214,18 @@
                     <div class="row justify-content-center align-items-center bg-white" data-aos="fade-up"
                         data-aos-delay="200">
                         <div class="col-12 col-lg-6 order-1 order-lg-1  service-img">
-                            <img src="{% static 'stanintegratedservices_app/img/lawn_care.jpg' %}" alt="" loading="lazy"
-                                class="img-fluid">
+                           <img src="{% static 'stanintegratedservices_app/img/air-condition.jpg' %}"
+                                alt="air conditioning installation and maintenance" loading="lazy" class="img-fluid">
                         </div>
                         <div class="col-12 col-lg-6 order-2 order-lg-2  service-item">
-                            <h2>Lawn Care</h2>
-                            <p>We offer professional lawn care including grass cutting, trimming, edging, and regular
-                                lawn maintenance for residential and commercial properties. A well-maintained lawn
-                                improves the appearance of your property and creates a welcoming environment for homes
-                                and businesses.</p>
+                             <h2>Air Conditioning Services</h2>
+                            <p>We deliver expert air conditioning services to ensure your indoor spaces remain comfortable 
+                                year-round. Our solutions cover precision installation, rapid diagnostics, structural system 
+                                repairs, and preventative HVAC maintenance for residential and commercial properties.</p>
                             <a href="#">Contact Us</a>
                         </div>
                     </div>
-                    <div class="row justify-content-center align-items-center bg-light" data-aos="fade-right"
+                    <div class="row justify-content-center align-items-center bg-light" data-aos="fade-up"
                         data-aos-delay="300">
                         <div class="col-12 col-lg-6 order-2 order-lg-1 service-item">
                             <h2>General Cleaning</h2>
@@ -236,7 +236,7 @@
                             <a href="#">Contact Us</a>
                         </div>
                         <div class="col-12 col-lg-6 order-1 order-lg-2 service-img">
-                            <img src="{% static 'stanintegratedservices_app/img/painting.jpg' %}" alt="" loading="lazy"
+                            <img src="{% static 'stanintegratedservices_app/img/hero1.jpg' %}" alt="" loading="lazy"
                                 class="img-fluid">
                         </div>
                     </div>
@@ -254,7 +254,7 @@
                             <a href="#">Contact Us</a>
                         </div>
                     </div>
-                    <div class="row justify-content-center align-items-center bg-light" data-aos="fade-right"
+                    <div class="row justify-content-center align-items-center bg-light" data-aos="fade-up"
                         data-aos-delay="500">
                         <div class="col-12 col-lg-6 order-2 order-lg-1 service-item">
                             <h2>Wallpaper Installation</h2>
@@ -286,14 +286,15 @@
                     <div class="row justify-content-center align-items-center bg-light" data-aos="fade-up"
                         data-aos-delay="600">
                         <div class="col-12 col-lg-6 order-1 order-lg-2 service-img">
-                            <img src="{% static 'stanintegratedservices_app/img/air-condition.jpg' %}"
-                                alt="air conditioning installation and maintenance" loading="lazy" class="img-fluid">
+                             <img src="{% static 'stanintegratedservices_app/img/lawn_care.jpg' %}" alt="" loading="lazy"
+                                class="img-fluid">
                         </div>
                         <div class="col-12 col-lg-6 order-2 order-lg-1 service-item">
-                            <h2>Air Conditioning Services</h2>
-                            <p>We deliver expert air conditioning services to ensure your indoor spaces remain comfortable 
-                                year-round. Our solutions cover precision installation, rapid diagnostics, structural system 
-                                repairs, and preventative HVAC maintenance for residential and commercial properties.</p>
+                            <h2>Lawn Care</h2>
+                            <p>We offer professional lawn care including grass cutting, trimming, edging, and regular
+                                lawn maintenance for residential and commercial properties. A well-maintained lawn
+                                improves the appearance of your property and creates a welcoming environment for homes
+                                and businesses.</p>
                             <a href="{% url 'contact' %}">Contact Us</a>
                         </div>
                     </div>
@@ -302,7 +303,7 @@
         </div>
     </section>
     {% include "stanintegratedservices_app/faq.html" %}
-    <section class="pre-footer" data-aos="fade-right">
+    <section class="pre-footer" data-aos="fade-up" data-aos-delay="100">
         <div class="container">
             <h2 class="fw-bold">Get in touch</h2>
             <p>If you have a property that could benefit from our maintenance services, get in touch with the experts at

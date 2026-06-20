@@ -1,7 +1,7 @@
 {% extends 'stanintegratedservices_app/base.html' %}
 {% load static %}
 {% block title %}About Us | Stan Integrated Services{% endblock %}
-{% block meta_description %}Learn about our mission, vision, and team at Stan Integrated Services.{% endblock %}
+{% block meta_description %}Learn about our mission, vision, and team at Stan Integrated Services Limited.{% endblock %}
 {% block content %}
 
 <style>
@@ -125,21 +125,19 @@
     }
 </style>
 
-<main class="mb-5">
-    <section class="about-us-section">
+<main class="mb-5" style="overflow-x: hidden;"> <section class="about-us-section">
         <div class="container">
-            <div class="about-us-header" data-aos="fade-down" data-aos-delay="500">
+            <div class="about-us-header" data-aos="fade-up" data-aos-delay="200">
                 <h1>About Us</h1>
             </div>
             <div class="about-container bg-light">
                 <div class="about-us-content">
                     <div class="row justify-content-center align-items-center">
-                        <div class="col-12 col-lg-6 order-2 order-lg-1 about-text" data-aos="fade-right"
-                            data-aos-delay="500">
+                        <div class="col-12 col-lg-6 order-2 order-lg-1 about-text" data-aos="fade-up" data-aos-delay="400">
                             <div class="about-1">
                                 <h1>About Stan Integrated Services</h1>
                                 <p>
-                                    Stan Integrated Services is a home and facility improvement company
+                                    Stan Integrated Services Limited is a home and facility improvement company
                                     focused on giving you a clean, beautiful and comfortable environment.
                                 </p>
                                 <p>
@@ -158,18 +156,17 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-12 col-lg-6 order-1 order-lg-2 about-logo" data-aos="zoom-out"
-                            data-aos-delay="1000">
-                            <img src="{% static 'stanintegratedservices_app/img/logo-lg.png' %}" alt="">
+                        <div class="col-12 col-lg-6 order-1 order-lg-2 about-logo" data-aos="fade-in" data-aos-delay="600">
+                            <img src="{% static 'stanintegratedservices_app/img/logo-lg.png' %}" alt="Stan Integrated Services Large Logo">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        </div>
     </section>
-    <section class=" pre-footer" data-aos="fade-right">
-        <div class="container">
+    
+    <section class="pre-footer">
+        <div class="container" data-aos="fade-up" data-aos-delay="300">
             <h2 class="fw-bold">Get in touch</h2>
             <p>If you have a property that could benefit from our maintenance services, get in touch with the experts at
                 Stan Integrated Services today.</p>
